@@ -1,0 +1,7 @@
+﻿namespace Pointstar.Core.Data
+{
+	public class Class1
+	{
+
+	}
+}
