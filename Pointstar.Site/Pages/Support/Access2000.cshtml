@@ -1,0 +1,48 @@
+﻿@page
+@model Pointstar.Site.Pages.Support.Access2000Model
+@{
+	Layout = "/Pages/Shared/_MainLayout.cshtml";
+	ViewData["Title"] = "Starpoint Software Technical Support";
+	ViewData["Caption"] = "Global Provider of Quality Software Applications since 1994";
+	ViewData["Subcaption"] = "Global Provider of Quality Software Applications since 1994";
+}
+
+
+<h2>ChemPoint can not Read MS Access 2000 Databases</h2>
+<h3>Symptom:</h3>
+<p>
+	When you try to import a data with the
+	Universal Converter, you get the error &quot;Unrecognized File
+	Format&quot; when selecting a Microsoft Access database.&nbsp; This may
+	happen if the database is in MS Access 2000 format.
+</p>
+<p>
+	For more information, check out these
+	Microsoft web page:
+</p>
+<p><a href="http://support.microsoft.com/support/kb/articles/Q236/9/91.ASP">http://support.microsoft.com/support/kb/articles/Q236/9/91.ASP</a></p>
+<p>&nbsp;</p>
+<h3>Solution:</h3>
+<p>
+	1.&nbsp; First you will need an updated version of
+	ChemPoint.&nbsp; In ChemPoint, go to Help | About and check the version of
+	ChemPoint.&nbsp; You must have version 4.0.4.1 or later with an executable
+	file creation date of April 10, 2001 or later.&nbsp; If you have an earlier
+	version, obtain the most recent update from Starpoint Software, and see if
+	the problem is resolved.
+<p>
+	2.&nbsp; If the problem
+	persists, you will need to install some Microsoft libraries on your
+	system.&nbsp; You will need Microsoft Data Access Objects (DAO) version
+	3.6.
+<p><a href="http://support.microsoft.com/support/kb/articles/Q233/0/02.ASP">http://support.microsoft.com/support/kb/articles/Q233/0/02.ASP</a><p>
+	You
+	will also need to install version 4.0 of the Microsoft Jet Database
+	Engine, included with MDAC version 2.5.
+<p>
+	You can
+	download MDAC version 2.4 here:
+<p><a href="http://www.microsoft.com/data/download.htm">http://www.microsoft.com/data/download.htm</a><p>
+	I
+	am sorry that this procedure is so complicated.&nbsp; You can blame
+	Microsoft for this..

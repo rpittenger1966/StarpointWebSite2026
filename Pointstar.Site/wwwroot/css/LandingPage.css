@@ -1,0 +1,273 @@
+﻿body
+{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	font-family: Verdana, Arial, Helvetica, Sans-Serif;
+	 background-color: #f7f7f7;
+	 font-size: 12px;
+	 line-height: 18px;
+	 color: #444444;
+}
+
+
+h1
+{
+	color: #4169E1;
+	font-size: 20px;
+	line-height: 24px;
+	padding: 10px 0px 10px 0px;
+	margin: 0px 0px 0px 0px;
+	font-family: Georgia, Times New Roman, Times;
+}
+
+h2
+{
+	color: #666666;
+	font-size: 16px;
+	line-height: 22px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	font-family: Georgia, Times New Roman, Times;
+	border-bottom: dotted 1px #4169E1;
+}
+
+
+h3
+{
+	color: #222222;
+	font-size: 14px;
+	line-height: 22px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+
+
+
+.main
+{
+}
+
+.Header
+{
+	background-color: #071F4B;
+	color: #ffffff;
+	height: 55px;
+	font-size: 20px;
+}
+
+
+
+
+.Header .headerNav
+{
+	width: 920px;
+	margin: auto;
+	padding: 4px 0px 0px 0px;
+
+}
+
+.Header .Testimonial
+{
+	font-size: 11px;
+	font-weight: normal;
+	font-style: italic;
+	line-height: 14px;
+	width: 450px;
+}
+
+
+.Header .headerNav a
+{
+	color: #ffffff;
+	text-decoration: none;
+
+}
+
+
+
+
+.ContentWrapper
+{
+
+}
+
+
+.SubHeader
+{
+	background: url(../Images/LandingPages/SubHeaderBackground.jpg) repeat-x;
+
+	height: 364px;
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 13px;
+	font-family: Verdana, Arial;
+	line-height: 20px;
+	
+
+
+
+}	
+
+.SubHeader h1
+{
+	color: #ffffff;
+	font-size: 23px;
+	line-height: 24px;
+	padding: 8px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	font-family: Arial;
+}
+
+
+.SubHeader .Content
+{
+	width: 920px;
+	margin: auto;
+	color: #ffffff;
+}
+
+
+.SubHeader .BuyDownloadRun
+{
+	color: #000000;
+	font-size: 15px;
+}
+
+
+.SubHeader .Content .text
+{
+	height: 257px;
+	
+}
+
+
+.SubHeader .Content .buttons
+{
+	height: 100px;
+	padding: 20px 0px 0px 0px;
+}
+
+.SubHeader .Content .button1
+{
+	padding: 0px 0px 4px 20px;
+}
+
+.SubHeader .Content .Price
+{
+	text-align: center;
+	color: #FF4500;
+	font-size: 24px;
+	font-weight: bold;
+	padding: 0px 0px 4px 0px;
+}
+
+.SubHeader .Price2
+{
+	font-size: 18px;
+	color: #4169E1;
+
+}
+
+
+.SubHeader .Content .Terms
+{
+	text-align: center;
+	color: #FF4500;
+	font-weight: bold;
+	padding: 0px 0px 4px 0px;
+}
+
+
+.SubHeader .Content .GetStarted
+{
+	text-align: center;
+	font-weight: bold;
+	padding: 0px 4px 4px 4px;
+	color: #228B22;
+	font-size: 18px;
+}
+
+
+
+
+.SubHeader .ScreenShot
+{
+	padding: 10px 10px 10px 10px;
+}
+
+.PageContent
+{
+	width: 920px;
+	margin : auto;
+
+	border-left: solid 1px #efefef;
+	border-right: solid 1px #efefef;
+	padding: 0px 10px 0px 10px;
+	background-color: #ffffff;
+}
+
+.PageContent .inner
+{
+	
+}
+
+.PageContent .LeftColumn
+{
+	
+}
+
+
+.PageContent .MiddleColumn
+{
+	
+}
+
+
+.PageContent .Windows7
+{
+	padding: 10px 10px 10px 10px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+
+
+.Footer
+{
+	width: 920px;
+	margin : auto;
+	padding: 10px 10px 10px 10px;
+	background-color: #4169e1;
+	color: #ffffff;
+	
+}
+
+.Footer a
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.Footer a:hover
+{
+	color: #ff0000;
+	text-decoration: underline;
+}
+
+
+
+.Footer .inner
+{
+}
+
+
+.moviedownloadblock
+{
+	padding: 10px 0px 10px 0px;
+}
+
+.moviedownloadblock .downloadlink
+{
+	padding: 5px 0px 5px 0px;
+}

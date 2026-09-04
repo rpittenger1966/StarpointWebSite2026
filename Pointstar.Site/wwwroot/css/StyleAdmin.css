@@ -1,0 +1,331 @@
+﻿a:link       { color: #003399;}
+a:visited    { color: #003399;}
+a:active     { color: #FFCC66;}
+a:hover     	{ color: #FF0000;}
+body
+{
+	font-family: Verdana, Arial;
+	background-color: rgb(255,255,255); 
+	font-size: 12px;
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+}
+
+
+h1, h2, h3, h4, h5, h6
+{
+	font-family: Arial, Helvetica;
+	font-weight: bold;
+}
+
+h1           { color: #000000; font-size: 14px; }
+h2           { color: #2F4E6F; font-size: 13px; }
+h3           { color: #3C5F84; font-size: 12px; }
+h4           { color: #131FA5; font-size: 11px; }
+h5           { color: #333333; font-size: 11px; }
+h6           { color: #000000; font-size: 11px; }
+
+
+.readonly
+{
+	font-weight: bold;
+	color: Red;
+	display: block;
+}
+
+
+.table
+{
+	font-family: Verdana;
+	font-size: 12px;
+}
+
+.table tbody
+{
+	font-family: Verdana;
+	font-size: 12px;
+}
+
+
+.mainbody
+{
+	padding: 0px 0px 0px 10px;
+	margin: 0px 0px 0px 0px;
+	font-family: Verdana;
+}
+
+.mainbody tbody
+{
+	font-family: Verdana, Arial;
+}
+
+	.mainbody td {
+		vertical-align: top;
+	}
+
+.headerpanel
+{
+	background-color: #000000;
+	font-family: Verdana;
+	font-size: 18px;
+	font-weight: bold;
+	color: White;
+	padding: 12px 0px 12px 15px;
+}
+
+
+.navigationbar
+{
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: normal;
+	color: #34567E;
+	background-color: #3C5F84;
+	padding: 5px 3px 5px 20px;
+}
+
+.navigationbar a, .navigationbar a:link, 
+	.navigationbar a:visited, .navigationbar a:active, .navigationbar a:hover 
+{
+	color: #FFFFFF;
+}
+
+
+.horizontalline
+{
+	height: 10px;
+	border-bottom: solid 2px #2F4E6F;
+}
+
+
+.detailstable
+{
+	background-color: #F2F2F2;
+	border: solid 1px #2F4E6F;
+	font-weight: normal;
+	font-size: 11px;
+	font-family: Verdana, Arial;
+}
+
+
+.detailsfield
+{
+	background-color: #F2F2F2;
+	font-weight: bold;
+}
+
+
+.detailsvalue
+{
+	background-color: #FFFFFF;
+	font-weight: normal;
+}
+
+.detailsmemovalue
+{
+	background-color: #FFFFFF;
+	font-weight: normal;
+}
+
+.detailslinkrow
+{
+	background-color: #C8D7E3;
+	font-weight: normal;
+}
+
+.detailsaccentrow
+{
+	background-color: #CCCCCC;
+	font-weight: normal;
+}
+
+
+.listtable
+{
+	background-color: #F2F2F2;
+	border: solid 1px #2F4E6F;
+	font-size: 12px;
+	font-family: Verdana, Arial;
+}
+
+.listtable .listtableheader
+{
+	background-color: #3C5F84;
+	color: White;
+	font-weight: bold;
+	font-size: 11px;
+	font-family: Verdana, Arial;
+}
+
+.listtable .listtablerowodd
+{
+	background-color: #EEEEEE;
+	color: Black;
+	font-weight: normal;
+ 
+}
+
+.listtable .listtableroweven
+{
+	background-color: #FFFFFF;
+	color: Black;
+	font-weight: normal;
+ 
+}
+
+.listtable .listtablehighlightrow
+{
+	background-color: #C8D7E3;
+	color: Black;
+	font-weight: normal;
+ 
+}
+
+.formtable
+{
+	border: solid 1px #2F4E6F;
+	background-color: #C8D7E3;
+	font-family: Verdana, Arial;
+	color: rgb(10, 10, 10);
+}
+
+.formtable .formtabledivider
+{
+	background-color: White;
+	color: Black;
+}
+
+
+.buttontable
+{
+	text-align: center;
+	width: 100%;
+}
+
+
+/*  Buttons and such */
+
+.NeptuneButton
+{
+	border-right: gray 2px outset;
+	background-position: center 50%;
+	border-top: gray 2px outset;
+	font-weight: bold;
+	font-size: 8pt;
+	vertical-align: middle;
+	text-transform: none;
+	border-left: gray 2px outset;
+	color: black;
+	border-bottom: gray 2px outset;
+	border-color: rgb(200,215,227);
+	font-style: normal;
+	font-family: Verdana, Arial;
+	background-color: rgb(153,175,196);
+	text-align: center;
+	text-decoration: none;
+}
+
+
+.footer
+{
+	text-align: center;
+}
+
+
+
+/* Mini article list */
+
+.miniarticlelistpanel
+{
+	display: block;
+	border: solid 1px #3C5F84;
+	padding: 0px 0px 0px 0px;
+ 	font-size: 11px;
+	font-family: Verdana;
+}
+
+.miniarticlelistpanel .caption
+{
+	display: block;
+	background-color: #3C5F84;
+	color: rgb(242,242,242);
+	font-weight: bold;
+	font-size: 13px;
+	padding: 3px 3px 3px 5px;
+}
+
+.miniarticlelistpanel .title
+{
+	display: block;
+	padding: 3px 0px 0px 5px;
+}
+
+
+.miniarticlelistpanel .author
+{
+	display: block;
+	padding: 1px 0px 0px 5px;
+}
+
+.miniarticlelistpanel .date
+{
+	display: block;
+	padding: 1px 0px 0px 5px;
+}
+
+.miniarticlelistpanel .description
+{
+	display: block;
+	padding: 1px 0px 10px 5px;
+}
+
+
+.discussionstatusnew
+{
+	color: Blue;
+	font-weight: normal;
+}
+
+.discussionstatusapproved
+{
+	color: rgb(50, 50, 50);
+	font-weight: normal;
+}
+
+.discussionstatusdeleted
+{
+	color: rgb(175, 25, 25);
+	font-weight: bold;
+}
+
+
+.indaterange
+{
+	display: block;
+	padding: 3px 3px 3px 3px;
+	color: rgb(25, 155, 25);
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.outofdaterange
+{
+	display: block;
+	padding: 3px 3px 3px 3px;
+	color: rgb(175, 25, 25);
+	font-weight: bold;
+	font-size: 12px;
+}
+
+
+
+.adminContents {
+	width: 350px;
+	padding: 0px 20px 0px 0px;
+	display: block;
+	float: left;
+}
+
+.adminBody {
+	display: block;
+}

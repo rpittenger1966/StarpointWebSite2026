@@ -1,0 +1,1163 @@
+﻿/** global **/
+body
+{
+	background:#fff url('../images/body_background.jpg') repeat-x;
+	font-family: Verdana,Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#333333;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+
+
+
+/** element defaults **/
+table {
+	width:100%;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	text-align:left;
+}
+th, td
+{
+	padding: 2px 2px 2px 2px;
+}
+th {
+	color:#fff;
+	border-top:3px solid #F66605;
+	background-color:#FE8100;
+}
+td {
+
+}
+code, blockquote {
+	display:block;
+	border-left:5px solid #ddd;
+	padding:10px;
+	margin-bottom:20px;
+}
+blockquote p {
+	font-style:italic;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	margin:0;
+	height: 1%;
+}
+p
+{
+	margin-bottom:20px;
+	line-height: 18px;
+	
+}
+
+a
+{
+	color:#0000DD;
+}
+a:link
+{
+	color:#0000DD;
+	text-decoration: none;
+}
+
+a:visited
+{
+	color:#F66605;
+	text-decoration: none;
+}
+
+a:hover
+{
+	color:#FF0000;
+	text-decoration: underline;
+}
+a:active
+{
+	color:#F63305;
+	text-decoration: underline;
+}
+a:focus
+{
+	color:#000;
+	outline:none;
+}
+
+
+.FormButtonPanel
+{
+	padding: 10px 0px 10px 0px;
+	text-align: center;
+}
+
+.btnNormal
+{
+	background:#FE8100;
+	border:none;
+	font-family:Arial, Helvetica, sans-serif;
+	border-bottom:3px solid #F66605;
+	color:#ffffff;
+	font-weight:bold;
+	padding:5px 10px;
+	font-size:12px;
+}
+
+
+h1
+{
+	color:#2f2f2f;
+	font-size:22px;
+	font-family:Arial,Helvetica,sans-serif;
+	line-height: 24px;
+}
+
+h2
+{
+	color:#2f2f2f;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:18px;
+	font-weight:bold;
+	line-height: 24px;
+}
+h3 {
+	color:RGB(0, 100, 0);
+	font-size:15px;
+	padding-bottom:10px;
+	font-weight: bold;
+	line-height: 24px;
+}
+h4 {
+	padding-bottom:10px;
+	font-size:14px;
+	color:#F66605;
+}
+h5 {
+	padding-bottom:10px;
+	font-size:13px;
+	color:#666666;
+}
+ul, ol
+{
+	margin: 0px 0px 0px 0px;
+}
+li
+{
+	padding: 0px 0px 5px 0px;
+}
+
+/** wrapper **/
+div#wrapper {
+	width:920px;
+	margin:0 auto;
+	padding:0;
+}
+
+/** sitename+nav **/
+.header
+{
+	padding-top:0px;
+	height:148px;
+}
+
+
+
+.header .AboveNav
+{
+	height:101px;
+	display: block;
+}
+
+.header .Testimonial
+{
+	padding: 8px 20px 0px 60px;
+	color: #efefef;
+	font-style: italic;
+	text-align: right;
+	line-height: 12px;
+	font-size: 11px;
+
+}
+
+.header .LoggedInAs
+{
+	padding: 8px 0px 0px 60px;
+	color: #efefef;
+	font-weight: bold;
+	text-align: right;
+	font-size: 12px;
+}
+
+
+.header .TopNavLink
+{
+	text-align: right;
+	height: 18px;
+	color: #ffffff;
+	padding: 4px 0px 0px 0px;
+}
+
+
+
+.header h3
+{
+	font-size:28px;
+	display: block;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	color: #FFFFFF;
+	font-family: Verdana, Arial,Helvetica,sans-serif;
+	font-weight: normal;
+	line-height: 34px;
+}
+
+.header h3 a
+{
+	text-decoration: none;
+	color: #eeeeee;
+}
+
+
+
+
+.header h2
+{
+	font-size:14px;
+	font-weight: bold;
+	display: block;
+	padding: 0px 10px 0px 20px;
+	margin: 0px 0px 0px 0px;
+	color: #eeeeee;
+	font-family:Verdana, Arial,Helvetica,sans-serif;
+
+}
+
+
+.header .caption a
+{
+	color:#888888;
+	font-weight:normal;
+	float:left;
+	text-decoration:none;
+}
+
+
+.header .Nav
+{
+	height:48px;
+	display: block;
+	font-weight:bold;
+	text-transform:uppercase;
+}
+
+
+.Nav a, .Nav a:link, .Nav a:visited 
+{
+	color: #FFFFFF;
+	text-decoration:none;
+}
+
+.Nav a:hover,.Nav a:active
+{
+	color: #FFFFFF;
+	text-decoration:underline;
+}
+
+
+
+.header .NavOrder
+{
+	background-color: RGB(34, 139, 34);
+	height: 36px;
+}
+
+.header .NavOrder .inner
+{
+	padding:10px 10px 10px 10px;
+	float: left;
+}
+
+
+
+.header ul
+{
+	float:right;
+	list-style:none;
+}
+
+.header ul li
+{
+	float:left;
+	display:block;
+	padding:0;
+}
+
+
+.header ul li a {
+	padding:10px 10px 10px 10px;
+	float:left;
+	display:block;
+	font-size:12px;
+	background-color:#F66605;
+	border: solid 1px #dddddd;
+}
+
+.header ul li.selected a,
+.header ul li.selected a:hover {
+	border:none;
+	background-color:#F66605;
+	text-decoration:none;
+}
+.header ul li a:hover {
+	text-decoration:underline;
+}
+
+
+.header .navitem
+{
+	float:left;
+	display:block;
+}
+
+
+.header .navitem a
+{
+	padding:10px 15px;
+	color:#fff;
+	text-decoration:none;
+	display:block;
+	font-size:12px;
+	background-color:#F66605;
+}
+
+.header .navitemselected a,
+.header .navitemselected a:hover
+{
+	border:none;
+	text-decoration:none;
+}
+.header .navitem a:hover {
+	text-decoration:underline;
+}
+
+
+
+
+
+/** body **/
+.pagebody
+{
+	background-color:#ffffff;
+	padding:10px;
+	margin-top:25px;
+	font-family: Verdana, Arial;
+}
+
+/** content+sidebar styles **/
+.pagecontentright
+{
+	width:635px;
+	line-height: 18px;
+}
+
+
+.pagecontentfull
+{
+	width:835px;
+	line-height: 18px;
+}
+
+.pagecontenttowerad
+{
+	width:675px;
+	line-height: 18px;
+}
+
+
+
+.sidebar
+{
+	width:230px;
+	padding: 0px 20px 0px 0px;
+}
+
+
+.sidebar .OrderButton
+{
+}
+
+.sidebar a {
+	color:#666666;
+}
+.sidebar a:hover {
+	color:#F66605;
+}
+.sidebar a:focus {
+	color:#000;
+	outline:none;
+}
+.sidebar a:visited {
+	color:#666666;
+}
+
+
+.sidebar .section
+{
+	margin:0;
+	padding:0;
+	display:block;
+	padding:7px 15px;
+	color:#777;
+}
+
+
+.sidebar .linklist
+{
+	margin:0;
+	padding:0;
+}
+
+
+.sidebar .linkitem
+{
+	display:block;
+	padding:7px 15px 7px 15px;
+	color:#777;
+	border-bottom:1px solid #ddd;
+}
+
+.sidebar .linkitem a
+{
+	text-decoration:none;
+	font-family: Verdana, Arial;
+	font-weight:bold;
+}
+
+.sidebar .linkitem a:link
+{
+	text-decoration:none;
+	color:#777;
+}
+
+.sidebar .linkitem a:visited
+{
+	text-decoration:none;
+	color:#777;
+}
+
+.sidebar .linkitem a:hover
+{
+	text-decoration:underline;
+	color: #F66605;
+}
+
+.sidebar .linkitem a:active
+{
+	text-decoration:underline;
+	color: #F66605;
+}
+
+
+.sidebar h4
+{ 
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	text-transform:uppercase;
+	font-weight:bold;
+	margin:0;
+	padding:7px 10px 7px 10px;
+	border-bottom:1px solid #ddd;
+}
+
+
+/** footer **/
+.footerad
+{
+	padding: 20px 0px 20px 0px;
+	display: none;
+}
+
+.footer
+{
+	background-color:#222;
+	padding:10px;
+	color:#FFFFFF;
+}
+
+.footer a
+{
+	color:#999;
+	font-weight:bold;
+	text-decoration:underline;
+}
+
+
+.footer-box
+{
+	padding: 6px 0px 6px 0px;
+	text-align: center;
+
+}
+
+.footer-links
+{
+	background-color:#111;
+	color:#ffffff;
+	padding:5px;
+}
+.footer-links p
+{
+	text-align:right;
+	padding:0;
+	margin:0;
+	font-size:10px;
+}
+.footer-links a {
+	color:#fff;
+	font-weight:bold;
+	text-decoration:underline;
+}
+
+/** clear **/
+.clear:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	height: 0;
+}
+ 
+.clear {
+	display: inline-block;
+}
+.clear {
+	display: block;
+}
+
+.tableheader
+{
+	color: #f66605;
+	background-color: #eeeeee;
+	font-weight:bold;
+}
+
+.pricetablerow
+{
+	color: #000000;
+	background-color: #FFFFFF;
+}
+
+.pricetablehighlight
+{
+	color: #000000;
+	background-color: #efefef;
+}
+
+
+.sysreqtableheader
+{
+	color: #FFFFFF;
+	background-color: RGB(30, 144, 255);
+	font-weight:bold;
+}
+
+
+.sysreqtablesubheader
+{
+	color: #000000;
+	background-color: #CCCC99;
+	height: 18px;
+}
+
+
+.sysreqtableroweven
+{
+	color: #000000;
+	background-color: #FFFFFF;
+	height: 18px;
+}
+
+.sysreqtablerowodd
+{
+	color: #000000;
+	background-color: rgb(242,240,218);
+	height: 18px;
+}
+
+
+
+.customers
+{
+ font-size: 10px;
+ color: #3E1F00;
+ text-align: center;
+ height:auto;
+	padding: 10px 3px 10px 3px;
+	line-height: 14px;
+}
+
+
+.customers .title
+{
+ font-size: 12px;
+ color: #3E1F00;
+ text-align: center;
+ font-weight: bold;
+ padding: 0px 0px 10px 0px;
+}
+
+
+.countries
+{
+	font-size: 10px;
+	color: #3E1F00;
+	text-align: left;
+	height:auto;
+	padding: 10px 3px 10px 3px;
+	line-height: 14px;
+}
+
+
+.countries .title
+{
+ font-size: 12px;
+ color: #3E1F00;
+ text-align: left;
+ font-weight: bold;
+ padding: 0px 0px 7px 0px;
+}
+
+
+
+.downloadlink
+{
+	display: block;
+	font-size: 11px;
+	padding: 2px 0px 2px 0px;
+}
+
+.downloadlink img {
+	padding: 0px 5px 0px 0px;
+}
+
+
+.downloaddetails
+{
+	display: block;
+	font-size: 11px;
+	padding: 0px 0px 10px 0px;
+}
+
+
+
+.horizontalline
+{
+	height: 10px;
+	border-bottom: dotted 1px #333333;
+}
+
+.definitionterm
+{
+	font-weight: bold;
+	padding: 5px 0px 5px 0px;
+}
+
+.definitionitem
+{
+	font-style:normal;
+	padding: 5px 0px 5px 20px;
+	font-weight: normal;
+}
+
+
+.screenshots
+{
+ vertical-align:top;
+ background-color:White;
+ padding: 5px;
+ line-height: 18px;
+}
+
+.screenshots tr
+{
+ vertical-align:top;
+ background-color:White;
+ padding: 5px;
+}
+
+
+.problem
+{
+	padding: 5px 0px 5px 0px;
+	display: block;
+}
+
+.solution
+{
+	padding: 5px 50px 5px 50px;
+	display: block;
+	color: rgb(0, 100, 0);
+}
+
+
+.new
+{
+	color: Blue;
+	font-weight: bold;
+}
+
+
+
+.starbutton
+{
+	background:#FE8100;
+	border:none;
+	font-family:Arial, Helvetica, sans-serif;
+	border-bottom:3px solid #F66605;
+	color:#ffffff;
+	font-weight:bold;
+	padding:5px 10px;
+	font-size:12px;
+}
+
+
+.NeptuneButton
+{
+	background:#FE8100;
+	border:none;
+	font-family:Arial, Helvetica, sans-serif;
+	border-bottom:3px solid #F66605;
+	color:#ffffff;
+	font-weight:bold;
+	padding:5px 10px;
+	font-size:12px;
+}
+
+
+.startextbox
+{
+	background-color: White;
+	font-family: Verdana, Arial;
+	font-style: normal;
+	padding: 4px 2px 4px 2px;
+	border: solid 1px #888888;
+}
+
+
+.starcheckbox
+{
+	background-color: White;
+	font-family: Verdana, Arial;
+	font-style: normal;
+	padding: 4px 2px 4px 2px;
+	border: solid 1px #888888;
+}
+
+
+
+
+.moviedownloadblock
+{
+ background-color: #fdfdfd;
+ padding: 3px 3px 3px 3px;
+ border-bottom: solid 1px #228b22;
+ border-top: solid 1px #228b22;
+	line-height: normal;
+
+}
+
+
+.homepageitemwrapper
+{
+	font-size:11px;
+	color:Black;
+	background-color: White;
+	padding: 10px 10px 10px 10px;
+	line-height: normal;
+
+}
+
+.homepageitemtitle
+{
+	font-size:11px;
+	color:#3E1F00;
+	font-weight: Bold;
+}
+
+.homepageitem
+{
+	font-size:11px;
+	color:Black;
+	background-color: White;
+	padding: 10px 10px 10px 10px;
+}
+
+
+
+/* Styles for online order form table */
+ProductPriceForm
+{
+
+}
+
+
+/* Styles for online order form table */
+.ProductPriceForm .PriceTableCaption
+{
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #777777;
+	color:White;
+	padding: 2px 2px 2px 20px;
+}
+
+.ProductPriceForm .groupdescription
+{
+	padding: 4px 2px 4px 2px;
+	background-color: #ffffff;
+}
+
+.ProductPriceForm .itemdetails
+{
+	font-size: 11px;
+	padding: 2px 2px 4px 2px;
+	background-color: #ffffff;
+}
+
+.ProductPriceForm .divider
+{
+	padding: 4px 2px 4px 2px;
+	background-color: #ffffff;
+	height: 6px;
+}
+
+.ProductPriceForm .itemrow
+{
+	font-size: 12px;
+	background-color: White;
+	font-weight: bold;
+	padding: 4px 2px 4px 2px;
+}
+
+.ProductPriceForm .itemprice
+{
+	color: #4E7DD1;
+	font-weight: bold;
+}
+
+.ProductPriceForm .ProductName
+{
+	font-weight: bold;
+}
+
+
+.ProductPriceForm .PreselectBox
+{
+	padding: 10px 10px 10px 10px;
+	border: solid 1px #cccccc;
+	
+}
+
+.ProductPriceForm .PreselectBox .inner
+{
+}
+
+.ProductPriceForm .PreselectBox .title
+{
+	font-size: 20px;
+}
+
+
+.ProductPriceForm .PreselectBox .Alternative
+{
+ font-weight: bold;
+ color: #1E90FF;
+ padding: 5px 20px 5px 20px;
+ font-size: 14px;
+}
+
+
+
+
+
+.deliveryoption
+{
+	padding: 0px 0px 20px 0px;
+}
+
+
+.deliveryoption .inner
+{
+	
+}
+
+
+.ElectronicDeliveryOnly {
+	font-weight: bold;
+	padding: 10px 0px 10px 0px;
+}
+
+.BuyNowButton
+{
+	float: right;
+	padding: 0px 0px 10px 10px;
+}
+
+
+
+.buttons
+{
+	height: 100px;
+	padding: 20px 0px 0px 0px;
+}
+
+.button1
+{
+	padding: 0px 0px 4px 20px;
+}
+
+.Price
+{
+	text-align: center;
+	color: #FF4500;
+	font-size: 24px;
+	font-weight: bold;
+	padding: 0px 0px 4px 0px;
+}
+
+.Price2
+{
+	font-size: 18px;
+	color: #4169E1;
+
+}
+
+
+.OrderFormPrefix
+{
+	
+}
+
+.formtable
+{
+	background-color: #ffffff;
+	font-family: Verdana, Arial;
+	color: #444444;
+	padding: 3px 3px 3px 3px;
+}
+
+.formtable h3
+{
+	border-bottom: dotted 1px #777777;
+	padding: 5px 0px 10px 0px;
+	margin: 10px 0px 10px 0px;
+}
+
+
+
+.formtable .formtabledivider
+{
+	background-color: White;
+	color: Black;
+}
+
+
+
+.FormSectionCaption
+{
+	color: #4169e1; 
+	font-family: Verdana; 
+	font-size: 14px; 
+	font-weight: bold;
+	padding: 15px 0px 5px 5px;
+	border-bottom: dotted 1px #abc9a7;
+}
+
+
+.TermsAndConditionsWrapper
+{
+
+
+}
+
+.TermsAndConditionsBox
+{
+	border: solid 1px #333333;
+	background-color: #FFFFFF;
+	padding: 3px 3px 3px 3px;
+	width: 700px;
+	height: 250px;
+	overflow: scroll;
+	font-family: Arial;
+	line-height: 14px;
+	text-align: left;
+}
+
+
+
+.OrderItemDataListTable
+{
+	
+}
+
+
+.OrderItemDataListTable .listtableheader
+{
+ background-color: #efefef;
+ font-weight: bold;
+}
+
+.OrderItemDataListTable .listtableroweven
+{
+	
+}
+
+.OrderItemDataListTable .listtablerowodd
+{
+ background-color: #efefef;
+}
+
+
+
+.OrderListPanel
+{
+	
+}
+
+
+.OrderPanel
+{
+	padding: 10px 0px 10px 0px;
+}
+
+.OrderPanel .table
+{
+	padding: 0px 0px 0px 0px;
+}
+
+.OrderPanel .tr
+{
+	padding: 0px 0px 0px 0px;
+}
+
+
+.OrderPanel .td
+{
+	padding: 0px 0px 0px 0px;
+}
+
+
+
+.OrderItemLinkPanel
+{
+	border-top: dotted 1px #cccccc;
+	padding: 10px 0px 10px 20px;
+}
+
+.OrderItemLinkPanel .RedirectLink
+{
+	padding: 0px 0px 0px 20px;
+}
+
+.OrderItemLinkPanel .RedirectLink a
+{
+	color: Blue;
+ text-decoration: underline;
+}
+
+
+
+
+.Windows
+{
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 20px;
+	border-bottom: dotted 1px #cccccc;
+	padding: 8px 0px 8px 0px;
+}
+
+.WindowsCompatibilityUserControl
+{
+	display: block;
+	float: right;
+	width: 330px;
+	padding: 0px 0px 5px 5px;
+	font-weight: bold;
+	font-size: 13px;
+	line-height: 18px;
+}
+
+.WindowsCompatibilityUserControl .inner
+{
+	padding: 5px 5px 5px 5px;
+	border: solid 1px #cccccc;
+	color: #666666;
+}
+
+
+.TowerCompatibility
+{
+	font-weight: bold;
+	width: 162px;
+	padding: 0px 0px 10px 0px;
+	line-height: 18px;
+}
+
+
+.TowerCompatibility .inner
+{
+	border: solid 1px #cccccc;
+	padding: 2px 2px 2px 2px;
+}
+
+
+.TowerCompatibility .Logo1
+{
+	padding: 0px 0px 10px 0px;
+}
+
+
+
+
+.WindowsCompatibilityBannerUserControl
+{
+	padding: 0px 0px 8px 0px;
+}
+
+.WindowsCompatibilityBannerUserControl .inner
+{
+	padding: 5px 5px 5px 5px;
+	border: solid 1px #cccccc;
+	color: #666666;
+}
+
+.WindowsCompatibilityBannerUserControl img
+{
+	padding: 2px 2px 2px 2px;
+}
+
+
+.WindowsCompatibilityBannerUserControl .LearnMore
+{
+	 font-size: 10px;
+	 font-weight: normal;
+	 padding: 2px 2px 2px 2px;
+}
+
+
+.UpgradeDownload {
+	padding: 10px 0px 0px 0px;
+	border-bottom: solid 1px #666666
+}
+
+	.UpgradeDownload .ProductName {
+		font-weight: bold;
+		padding: 4px 0px 0px 0px;
+	}
+
+	.UpgradeDownload .ExpirationDate {
+		padding: 4px 0px 0px 0px;
+	}
+
+	.UpgradeDownload .downloadlink {
+		padding: 4px 0px 0px 0px;
+	}

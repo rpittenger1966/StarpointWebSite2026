@@ -1,0 +1,91 @@
+﻿@model Pointstar.Core.WebControls.BasePageModel
+@{
+}
+
+<div class="header">
+	<div class="AboveNav">
+
+
+		<table cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td colspan="2" align="left">
+
+					@if (Model.SignedIn)
+					{
+						<div class="TopNavLink">
+							<a href="~/Members/SignOut">Sign Out</a>
+							<asp:HyperLink ID="linkSignOut" runat="server" Text="Sign Out" NavigateUrl="~/Members/Signout.aspx" />
+
+						</div>
+					}
+					else
+					{
+
+						<div class="TopNavLink">
+							<a href="~/Members/SignIn">Sign In</a>
+							<asp:HyperLink ID="linkSignin" runat="server" Text="Sign In" NavigateUrl="~/Members/Signin.aspx" Visible="false" />
+						</div>
+					}
+
+
+				</td>
+			</tr>
+
+			<tr valign="top">
+				<td>
+					<h3>
+						<a href="~/">Starpoint Software</a>
+					</h3>
+
+				</td>
+				<td>
+					<div class="Testimonial">
+						@Model.Testimonial
+					</div>
+
+					@if (Model.SignedIn)
+					{
+						<div class="LoggedInAs">
+							@Model.LoggedInAs
+						</div>
+					}
+
+				</td>
+
+			</tr>
+			<tr valign="top">
+				<td colspan="2">
+					<h2>
+						@ViewData["Subcaption"]
+					</h2>
+				</td>
+			</tr>
+
+		</table>
+
+
+
+
+
+
+	</div>
+
+	<div class="Nav">
+		<div class="NavOrder">
+			<div class="inner">
+				<asp:HyperLink ID="linkOrder" runat="server" NavigateUrl="~/Order/OrderOnline.aspx" Text="Order Online" />
+			</div>
+
+
+
+
+			<ul>
+				<asp:PlaceHolder ID="phNavigation" runat="server" />
+			</ul>
+		</div>
+	</div>
+
+</div>
+
+
+<div class="clear"></div>

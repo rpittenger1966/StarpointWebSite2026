@@ -1,0 +1,81 @@
+a:link{	color: rgb(0,51,153); }a:visited{	color: rgb(102,0,51); } a:hover {	color: rgb(30,104,147);}a:active {	color: rgb(30,104,147);}body{	font-family: Verdana;	background: url(../Images/BlueTan/Background.gif) repeat-y;	background-color: rgb(242,240,218); 	font-size: 12px;	margin: 0;	padding: 0;}h1{	font-family: Verdana,Arial, Helvetica;	background-color: #1B4E6D;	color: rgb(242,240,218);	padding: 2px 2px 2px 2px;	font-weight: bold;	font-size: 12px;}h2, h3, h4, h5, h6{	font-family: Arial, Helvetica;}h2           { color: #3E1F00; font-family: Verdana; font-size: 12px; font-weight: bold }h3           { color: #000000; font-family: Verdana; font-size: 12px; font-weight: bold }h4           { color: #800040; font-family: Verdana; font-size: 12px; font-weight: bold }h5           { color: #4E7DD1; font-family: Verdana; font-size: 12px; font-weight: bold }h6           { color: #800040; font-family: Verdana; font-size: 12px; font-weight: bold }address      { font-family: Bookman Old Style; font-size: 12px; font-style: italic }.Basic       { font-family: Arial; font-size: 12px }.table{	font-family: Verdana;	font-size: 12px;}.mainbody{/*	background: url(../Images/Background.gif) repeat-y; */	padding: 0 0 0 13px;}.titlebar{	height: 44px;	background: url(../Images/BlueTan/BlueTitleBarBackground.gif) repeat-x;	color: #FFFFFF;	font-family: Verdana,Arial,Helvetica;	font-size: 18pt;	font-weight: bold;	padding: 0px 0px 0px 0px;	margin: 0px 0px 0px 0px;	border: none 0 white;	}.titlebarprint{	display:none;}.subtitletext{	padding: 5px 0px 0px 0px;		}.subtitlebar{	background-color: rgb(24, 78, 109);	color: #FFFFFF;	font-size: 12px;	font-weight: bold;	font-family: Verdana,Arial,Helvetica;	border-top-color: #FFFFFF;	border-top-style: solid;	border-top-width: 2px;		text-align: right;	padding: 0px 100px 0px 0px;			height: 28px;}.navbar{	background: url(../Images/BlueTan/NavBackground.gif) repeat-x;	color: #000000;	font-size: 11px;	font-weight: bold;	font-family: Verdana,Arial,Helvetica;	height: 28px;	vertical-align:middle;	display:block;	min-width : 650px;}.navbar .navbarleft{	float:left;	display:inline;	background: url(../Images/BlueTan/NavLeftEnd.gif) no-repeat;	height: 28px;	width: 10px;	vertical-align:middle;}.navbar .navbarbutton{	float:left;	background: url(../Images/BlueTan/NavBackground.gif) repeat-x;	height: 28px;	padding: 6px 10px 0px 10px;	vertical-align:middle;}.navbar .navbarbutton a, .navbar .navbarbutton a:link,.navbar .navbarbutton a:visited,.navbar .navbarbutton a:hover,.navbar .navbarbutton a:active{	text-decoration:none;	color:RGB(24, 78, 109);}.navbar .navbarbutton a:hover,.navbar .navbarbutton a:active{	text-decoration:underline;	color:RGB(65, 105, 225);}.navbar .navbardivider{	float:left;	background: url(../Images/BlueTan/NavDivider.gif) no-repeat;	height: 28px;	width: 20px;}.navbar .navbarright{	float:left;	display:inline;	background: url(../Images/BlueTan/NavBackground.gif) repeat-x;	height: 28px;	width: 100%;}.clear{	clear:both;}.contents{	float:left;	padding: 10px 10px 10px 10px;	background-color: rgb(215,198,157);	width: 180px;	font-family: Verdana,Arial;	font-size: 11px;}.contents .title{	padding: 10px 10px 10px 0px;	font-size: 12px;	font-weight: bold; }.contents .subtitle{	padding: 1px 0px 0px 0px;	font-weight: bold; }.contents .item{	padding: 4px 0px 0px 4px;	font-weight: normal; }.contents .item a, .contents .item a:link, .contents .item a:visited, .contents .item a:hover, .contents .item a:active{	text-decoration: none;	color: rgb(0,51,153);}.contents .item a:hover{	text-decoration: underline;	color:RGB(65, 105, 225);}.contents .spacer{	height: 8px;}.textbody{	padding: 10px 0px 10px 0px;	background-color: rgb(242,240,218); 	width: 100%;	font-size: 12px;	font-family: Verdana;}.textbodycontainer
+{
+ line-height: 18px;
+}
+.textbody table{	padding: 10px 0px 10px 0px;	background-color: rgb(242,240,218); 	width: 100%;	font-size: 12px;	font-family: Verdana;}/* Tan Solid Background box */.solidbox{	background: #FFFFFF url(../Images/SolidDiv/GreyBottomLeft.gif) no-repeat left bottom;		font-size: 10px;}.solidbox-outer{	background: url(../Images/SolidDiv/GreyBottomRight.gif) no-repeat right bottom;	}.solidbox-inner{	background: url(../Images/SolidDiv/GreyTopLeft.gif) no-repeat left top;	}.solidbox-header{	background: url(../Images/SolidDiv/GreyTopright.gif) no-repeat top right;		color: Blue;	padding: 15px 5px 10px 10px;}.solidbox .text{	padding: 0px 5px 10px 10px;}.gradientstrip{	background: url(../Images/BlueTan/TanGradientStrip.gif) repeat-y left;		padding: 5px 0px 5px 10px;	margin: 0px 0px 0px 0px;	color: #000000;	font-size: 14px;	font-family: Verdana;	font-weight:bold;}.footer{	text-align:center; 	font-size: 10px;	font-family: Verdana;	font-weight:normal;	padding: 10px 0px 0px 10px;}.horizontalline{	height: 10px;	border-bottom: solid 2px Black;}.definitionterm{	color: Black;	font-weight: bold;	padding: 5px 0px 5px 0px;}.definitionitem{	color: Black;	font-style:normal;	padding: 5px 0px 5px 20px;	font-weight: normal;}/* Table style for screenshots */.screenshots{ font-family:Bookman Old Style; font-size: 12px; font-style:italic; color: Navy; vertical-align:top; background-color:White; padding: 5px;}.screenshots tr{ font-family:Bookman Old Style; font-size: 12px; font-style:italic; color: Navy; vertical-align:top; background-color:White; padding: 5px;}.problem{	color: Black;	background-color: White;	width: 100%;	padding: 5px 5px 5px 5px;	display: block;}.solution{	color: Black;	background-color: Gray;	width: 100%;	padding: 5px 5px 5px 5px;	display: block;}.new{	color: Blue;	font-weight: bold;}.tableheader{	color: #FFFFFF;	background-color: #1B4E6D;	font-weight:bold;}.pricetablerow{	color: #000000;	background-color: #FFFFFF;}.pricetablehighlight{	color: #000000;	background-color: #CCCC99;}.sysreqtableheader{	color: #FFFFFF;	background-color: #1B4E6D;	font-weight:bold;}.sysreqtablesubheader{	color: #000000;	background-color: #CCCC99;	height: 18px;}.sysreqtableroweven{	color: #000000;	background-color: #FFFFFF;	height: 18px;}.sysreqtablerowodd{	color: #000000;	background-color: rgb(242,240,218);	height: 18px;}.customers{ font-size: 10px; color: #3E1F00; text-align: center; height:auto;	padding: 10px 3px 10px 3px;	line-height: normal;}.customers .title{ font-size: 12px; color: #3E1F00; text-align: center; font-weight: bold; padding: 0px 0px 10px 0px;}.countries{	font-size: 10px;	color: #3E1F00;	text-align: left;	height:auto;	padding: 10px 3px 10px 3px;	line-height: normal;}.countries .title{ font-size: 12px; color: #3E1F00; text-align: left; font-weight: bold; padding: 0px 0px 10px 0px;}.homepageitemwrapper{	font-size:11px;	color:Black;	background-color: White;	padding: 10px 10px 10px 10px;	line-height: normal;}.homepageitemtitle{	font-size:11px;	color:#3E1F00;	font-weight: Bold;}.homepageitem{	font-size:11px;	color:Black;	background-color: White;	padding: 10px 10px 10px 10px;}.required{	color:Red;	font-weight: bold;}.starbutton{	border-right: gray 2px outset;	background-position: center 50%;	border-top: gray 2px outset;	font-weight: bold;	font-size: 8pt;	vertical-align: middle;	text-transform: none;	border-left: gray 2px outset;	color: black;	border-bottom: gray 2px outset;	border-color: rgb(200,215,227);	font-style: normal;	font-family: Verdana, Arial;	background-color: rgb(153,175,196);	text-align: center;	text-decoration: none;}.startextbox{	background-color: White;
+	border: outset 1px rgb(200,200,200);
+	font-size: 11px;
+	font-family: Verdana, Arial;
+	font-style: normal;
+}/* Wrappe for all forms */.formwrapper{}.formleft{ background-color: rgb(215,198,157); font-size: 11px; font-weight: bold; padding: 2px 2px 2px 2px;}.formleftempty{ background-color: rgb(242,240,218); font-size: 11px; font-weight: bold; padding: 2px 2px 2px 2px;}.formright{ background-color: rgb(242,240,218); font-size: 11px; font-weight: normal; padding: 2px 2px 2px 2px;}.error{	display: block;	background-color: RGB(255, 250, 205);	color: Red;	font-size: 12px;	font-family: Verdana, Arial;	padding: 5px 5px 5px 5px;	width: 100%;	}/*  Items on the download page */.downloadlink{	display: block;	font-size: 11px;	padding: 2px 0px 2px 0px;}.downloaddetails{	display: block;	font-size: 11px;	padding: 0px 0px 10px 0px;}.alert{	color: Blue;}.fineprint{	font-size: 11px;}.licenseagreement{ overflow: scroll; height: 200px; font-family:Courier New; font-size: 12px; background-color: #FFFFFF; border: solid 1px Black; padding: 4px 4px 4px 4px; }.special{	background: White;	padding: 4px 4px 4px 4px;}/* Styles for online order form table */.groupname{	font-size: 12px;	font-weight: bold;	background-color: rgb(24, 78, 109);	color:White;}.itemdetails{	font-size: 11px;}.itemrow{	font-size: 12px;	background-color: White;}.itemprice{	color: #4E7DD1;	font-weight: bold;}
+/* List table class  */
+
+.listtable
+{
+	background-color: rgb(250, 250, 250);
+}
+
+.listtable tbody
+{
+	font-size: 11px;
+}
+
+
+.listtableodd
+{
+/*	background-color: rgb(238, 238, 238); */
+	background-color: rgb(250, 250, 250);
+
+}
+
+.listtableheader
+{
+	background-color: rgb(51, 51, 102);
+	color: rgb(255, 204, 102);
+	font-weight: bold;
+}
+
+.listtablehighlight
+{
+	background-color: rgb(238, 238, 238);
+	color: rgb(0, 51, 222);
+	font-weight: bold;
+}
+
+
+.orderbuttonpanel
+{
+	text-align: center;
+	font-size: 11px;
+	padding: 10px 4px 10px 4px;
+
+}
+
+
+.onlineordering
+{
+ background-color: White;
+ padding: 3px 3px 3px 3px;
+ border-bottom: solid 1px Blue;
+ border-top: solid 1px Blue;
+}
+
+.moviedownloadblock
+{
+ background-color: White;
+ padding: 3px 3px 3px 3px;
+ border-bottom: solid 1px Blue;
+ border-top: solid 1px Blue;
+	line-height: normal;
+}
+
+.thinhorizontalline
+{	height: 3px;	border-bottom: solid 1px Blue;}.moviedescription{	display: block;	font-size: 11px;	padding: 5px 0px 3px 20px;}.newbanner
+{
+ background-color: White;
+ padding: 10px 3px 10px 3px;
+ border-bottom: solid 1px Blue;
+ border-top: solid 1px Blue;
+ line-height: 18px;
+}
+.pagespacer{	height: 8px;}

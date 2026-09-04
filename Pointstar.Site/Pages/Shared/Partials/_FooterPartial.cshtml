@@ -1,0 +1,32 @@
+﻿@model BasePageModel
+@{
+}
+
+<div class="footer">
+	<p>
+	<a href="/">Home</a> |
+	<a href="/Starpoint/Products">Products</a> |
+	<a href="/Starpoint/Pricing">Pricing</a> |
+
+	@if (Model.AllowOnlineOrdering)
+	{
+		<a href="/Order/">Online Ordering</a>
+	}
+
+	</p>
+
+	<p>
+		<a href="/Support/">Support</a> | 
+		<a href="/Starpoint/Contact">Contact</a> |
+		<a href="/Starpoint/SystemRequirements">System Requirements</a> |
+		<a href="/Download/">Downloads</a> |
+		<a href="/Starpoint/AboutStarpoint">About Starpoint</a> |
+
+	</p>
+
+
+	<p>
+		@Html.Raw(Model.CopyrightText)
+	</p>
+</div>
+

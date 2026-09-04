@@ -1,0 +1,149 @@
+﻿
+
+.beginner
+{
+ color: Blue;
+ font-weight: bold;
+}
+
+.intermediate
+{
+ color: RGB(0, 172, 0);
+ font-weight: bold;
+}
+
+.advanced
+{
+ color: Red;
+ font-weight: bold;
+}
+
+.true
+{
+	color: Blue;
+}
+
+.false
+{
+	color: Red;
+}
+
+
+.clearboth
+{
+	clear: both;
+}
+
+.clearleft
+{
+	clear: left;
+}
+
+
+.clearright
+{
+	clear: right;
+}
+
+.debugtext
+{
+	display: block;
+	font-family: Courier New;
+	font-size: 12px;
+	font-weight: normal;
+	color: #FFFACD;
+	background-color: #4682B4;
+	padding: 3px 3px 3px 3px;
+}
+
+.errorblock
+{
+	display: block;
+	background-color: RGB(255, 250, 205);
+	color: Red;
+	font-size: 12px;
+	font-family: Verdana, Arial;
+	padding: 3px 5px 3px 5px;
+	width: 100%;
+	
+}
+
+
+.errorinline
+{
+	display: inline;
+	background-color: RGB(255, 250, 205);
+	color: Red;
+	font-size: 12px;
+	font-family: Verdana, Arial;
+	padding: 5px 5px 5px 5px;
+	width: 100%;
+	
+}
+
+.spacer
+{
+	height: 10px;
+}
+
+.required
+{
+	color: Red;
+	font-weight: bold;
+}
+
+
+.startextbox
+{
+	background-color: White;
+	font-size: 11px;
+	font-family: Verdana, Arial;
+	font-style: normal;
+}
+
+
+.alert
+{
+	display: block;
+	color: Red;
+	font-weight: bold;
+	font-size: 14px;
+	padding: 5px 0px 5px 0px;
+}
+
+
+
+.available
+{
+	color: RGB(0, 100, 0);
+}
+
+.inuse
+{
+	color: #dd0000;
+}
+
+.NewLowerPrice
+{
+	border-bottom: dotted 1px #000000;
+	text-align: center;
+}
+
+
+.NewLowerPrice .inner
+{
+	padding: 6px 3px 6px 3px;
+	font-weight: bold;
+}
+
+
+.LowerPriceStar
+{
+	float: right;
+	padding: 0px 0px 5px 4px;
+}
+
+.LowerPriceStar .inner
+{
+}
+
