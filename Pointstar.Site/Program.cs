@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.AspNetCore.Mvc.Razor;
+
 namespace Pointstar.Site
 {
 	public class Program
@@ -9,7 +12,13 @@ namespace Pointstar.Site
 			// Add services to the container.
 			builder.Services.AddRazorPages();
 
-			var app = builder.Build();
+			builder.Services.Configure<RazorViewEngineOptions>(options =>
+			{
+				options.PageViewLocationFormats.Add("/Pages/Shared/Partials/{0}" + RazorViewEngine.ViewExtension);
+				options.PageViewLocationFormats.Add("/Pages/Shared/Partials/m/{0}" + RazorViewEngine.ViewExtension);
+			});
+
+			WebApplication app = builder.Build();
 
 			// Configure the HTTP request pipeline.
 			if (!app.Environment.IsDevelopment())
@@ -20,6 +29,7 @@ namespace Pointstar.Site
 			}
 
 			app.UseHttpsRedirection();
+			app.UseStaticFiles();
 
 			app.UseRouting();
 
@@ -28,6 +38,22 @@ namespace Pointstar.Site
 			app.MapStaticAssets();
 			app.MapRazorPages()
 			   .WithStaticAssets();
+
+			// required to get IP Address from request
+			// https://stackoverflow.com/questions/28664686/how-do-i-get-client-ip-address-in-asp-net-core
+			app.UseForwardedHeaders(new ForwardedHeadersOptions
+			{
+				ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+			});
+
+			IConfiguration configuration = builder.Configuration;
+			// AppSettings.Initialize(configuration);
+
+			IServiceProvider appServices = app.Services;
+
+			var webHostEnvironment = appServices.GetRequiredService<IWebHostEnvironment>();
+			// ArtworkMemoryCache.WebSiteRootFilePath = webHostEnvironment.WebRootPath;
+
 
 			app.Run();
 		}

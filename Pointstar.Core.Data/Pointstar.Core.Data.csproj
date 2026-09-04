@@ -10,4 +10,14 @@
     <ProjectReference Include="..\Pointstar.Standard.Common\Pointstar.Standard.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DataReaders\" />
+    <Folder Include="Models\" />
+    <Folder Include="Providers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.2" />
+  </ItemGroup>
+
 </Project>

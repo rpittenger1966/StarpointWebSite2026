@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Pointstar.Site.Pages
 {
-	public class IndexModel : PageModel
+	public class IndexModel : BasePageModel
 	{
 		private readonly ILogger<IndexModel> _logger;
 
