@@ -2,9 +2,10 @@
 @model Pointstar.Site.Pages.Download.MoviesModel
 @{
 	Layout = "/Pages/Shared/_MainLayout.cshtml";
-	ViewData["Title"] = "Title Here";
-	ViewData["Caption"] = "Caption Here";
-	ViewData["Subcaption"] = "Subcaption Here";
+	ViewData["Title"] = "Starpoint Software Screenshot Videos";
+	ViewData["Caption"] = "Product Videos";
+	ViewData["Subcaption"] = "";
 }
 
-<h1>Movies</h1>
+
+<partial name="_StarpointMoviesPartial" />

@@ -5,7 +5,12 @@ namespace Pointstar.Site.Pages.Aquifer
 {
     public class StepMasterModel : BasePageModel
 	{
-        public void OnGet()
+		public StepMasterModel()
+		{
+			Menu = MenuEnum.Aquifer;
+		}
+
+		public void OnGet()
         {
         }
     }

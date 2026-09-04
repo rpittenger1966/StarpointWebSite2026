@@ -2,10 +2,160 @@
 @model Pointstar.Site.Pages.Aquifer.StepMasterModel
 @{
 	Layout = "/Pages/Shared/_MainLayout.cshtml";
-	ViewData["Title"] = "Title Here";
-	ViewData["Caption"] = "Caption Here";
-	ViewData["Subcaption"] = "Subcaption Here";
+	ViewData["Title"] = "StepMaster Aquifer Step-Drawdown Pump Test Analysis Software";
+	ViewData["Caption"] = "StepMaster";
+	ViewData["Subcaption"] = "Aquifer Step-Drawdown Pumping Test Analysis Software";
 }
 
 
-<h1>StepMaster</h1>
+<h1>
+	Aquifer
+	Step-Drawdown and Recovery Test Analysis Software for Microsoft Windows
+</h1>
+
+<p>
+	<a href="http://pointstar.com/StarpointHelp/StepMaster/StepMasterHelp.html" target="_blank">Browse the help system to learn more.</a>
+</p>
+
+<partial name="_StarpointMoviesPartial" />
+
+<p>
+	Everyone performs step-drawdown tests but few people know how
+	to analyze the data. Analyzing step-drawdown tests requires the use of complex graphical
+	techniques which are not widely taught. StepMaster uses graphical analysis methods to
+	analyze step-drawdown tests quickly and reliably. No other program is designed
+	specifically for Step-Drawdown like StepMaster.
+</p>
+<div class="horizontalline"></div>
+<h3>Graphical Test Analysis Methods</h3>
+<ul>
+	<li>
+		<strong>Eden-Haze</strong>l (step-drawdown and recovery to
+		estimate aquifer transmissivity linear well loss coefficients)
+	</li>
+	<li>
+		<strong>Birsoy-Summers</strong> (step-drawdown and recovery
+		analysis to estimate aquifer transmissivity and storativity)
+	</li>
+	<li>
+		<strong>Hantush-Bierschenk</strong> (to estimate linear and
+		non-linear well loss coefficients)
+	</li>
+</ul>
+<div class="horizontalline"></div>
+<h3>StepMaster Features</h3>
+<ul>
+	<li>
+		Accepts up to twelve pumping rates (it is not necessary for
+		rates to be consecutively increasing or of the same duration)
+	</li>
+	<li>
+		Write tab delimited tables of special values Eden- Hazel's H
+		and Birsoy-Summers adjusted time. This allows further independent analysis.
+	</li>
+	<li>
+		All calculations are displayed in moveable, customizable text
+		boxes.
+	</li>
+	<li>Arithmetic, Semi-Log, and Log-Log graphs</li>
+	<li>
+		Extensive ability to eliminate unwanted data or entire steps
+		from the analysis
+	</li>
+</ul>
+
+<p align="center">
+	<strong>
+		StepMaster Example Screens<br>
+	</strong>Click on an image to view full size
+</p>
+
+<table class="screenshots">
+	<tr>
+		<td width="14"></td>
+		<td width="152"><a href="/Assets/Aquifer/screens/eh.gif"><img src="/Assets/Aquifer/screens/eh_small.gif" alt="eh.gif (15332 bytes)" border="2" WIDTH="100" HEIGHT="83"></a></td>
+		<td width="527">
+			<address>
+				The Eden-Hazel method is a two-part graphical analysis.&nbsp; The
+				method provides estimates of aquifer transmissivity and an equation describing well
+				drawdown with pumping rate as the independent variable.&nbsp; (15332 bytes)
+			</address>
+		</td>
+	</tr>
+	<tr>
+		<td width="14"></td>
+		<td width="152"><a href="/Assets/Aquifer/screens/bs.gif"><img src="/Assets/Aquifer/screens/bs_small.gif" alt="bs.gif (17720 bytes)" border="2" WIDTH="100" HEIGHT="81"></a></td>
+		<td width="527">
+			<address>
+				The Birsoy-Summers is a graphical method to provide estimates of
+				aquifer transmissivity and storativity.
+			</address>
+		</td>
+	</tr>
+	<tr>
+		<td width="14"></td>
+		<td width="152"><a href="/Assets/Aquifer/screens/step.gif"><img src="/Assets/Aquifer/screens/step_small.gif" alt="step.gif (15531 bytes)" border="2" WIDTH="100" HEIGHT="83"></a></td>
+		<td width="527">
+			<address>
+				Shown here is the Clark (1978) data set, in the first graph of the
+				Hantush-Bierschenk analysis. The Hantush-Bierschenk method does not provide T or S, but
+				does provide well loss coefficients and an equation describing well drawdown with pumping
+				rate as the independent variable.
+			</address>
+		</td>
+	</tr>
+	<tr>
+		<td width="14"></td>
+		<td width="152"><a href="/Assets/Aquifer/screens/caliope.gif"><img src="/Assets/Aquifer/screens/caliope_small.gif" alt="caliope.gif (16216 bytes)" border="2" WIDTH="100" HEIGHT="84"></a></td>
+		<td width="527">
+			<address>
+				Shown here is the Eden-Hazel method with the Calliope example data set
+				published with the original Eden-Hazel paper.&nbsp; The Eden-Hazel method works with
+				increasing or decreasing discharge rates as well as recovery data.&nbsp; (16216 bytes)
+			</address>
+		</td>
+	</tr>
+	<tr>
+		<td width="14"></td>
+		<td width="152"><a href="/Assets/Aquifer/screens/kawecki2.gif"><img src="/Assets/Aquifer/screens/kawecki2_small.gif" alt="kawecki2.gif (15902 bytes)" border="2" WIDTH="100" HEIGHT="84"></a></td>
+		<td width="527">
+			<address>
+				Show here is an arithmetic time-drawdown graph where the initial step
+				was pumped at a higher rate than subsequent steps.&nbsp; Even this data can provide
+				reliable estimates of aquifer transmissivity with StepMaster.&nbsp; (15902 bytes)
+			</address>
+		</td>
+	</tr>
+	<tr>
+		<td width="14"></td>
+		<td width="152"><a href="/Assets/Aquifer/screens/kaweki1.gif"><img src="/Assets/Aquifer/screens/kaweki1_small.gif" alt="kaweki1.gif (18502 bytes)" border="2" WIDTH="100" HEIGHT="84"></a></td>
+		<td width="527">
+			<address>
+				Shown here is the above data analyzed with the Eden-Hazel method.
+				(18502 bytes)
+			</address>
+		</td>
+	</tr>
+	<tr>
+		<td width="14"></td>
+		<td width="152"><a href="/Assets/Aquifer/screens/smrec.gif"><img src="/Assets/Aquifer/screens/smrec_small.gif" alt="smrec.gif (16505 bytes)" border="2" WIDTH="100" HEIGHT="84"></a></td>
+		<td width="527">
+			<address>
+				The Eden-Hazel method also provides transmissivity estimates for a
+				simple constant rate pump test with recovery data, as shown here with an example data set
+				from Todd (1980) (16505 bytes)
+			</address>
+		</td>
+	</tr>
+	<tr>
+		<td width="14"></td>
+		<td width="152"><a href="/Assets/Aquifer/screens/smrec2.gif"><img src="/Assets/Aquifer/screens/smrec2_small.gif" alt="smrec2.gif (14714 bytes)" border="2" WIDTH="100" HEIGHT="84"></a></td>
+		<td width="527">
+			<address>
+				Show here is a semi-logarithmic graph of the above recovery data.
+				(14714 bytes)
+			</address>
+		</td>
+	</tr>
+</table>
+

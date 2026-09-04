@@ -5,7 +5,14 @@ namespace Pointstar.Site.Pages.ChemPoint
 {
     public class ContouringModel : BasePageModel
 	{
-        public void OnGet()
+		public ContouringModel()
+		{
+			Menu = MenuEnum.ChemPoint;
+			MovieLinks = MovieLinksEnum.ChemPoint;
+			MetaPageDescription = "";
+		}
+
+		public void OnGet()
         {
         }
     }

@@ -7,6 +7,9 @@ namespace Pointstar.Site.Pages.Download
 	{
         public void OnGet()
         {
+			Menu = MenuEnum.Default;
+			MovieLinks = MovieLinksEnum.All;
+			MetaPageDescription = "";
         }
     }
 }

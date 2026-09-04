@@ -13,10 +13,16 @@ namespace Pointstar.Core.WebControls
 	public class BasePageModel : PageModel
 	{
 		public string TestText { get; set; }
+		public string MetaPageDescription { get; set; }
+		public MenuEnum Menu { get; set; }
+		public MovieLinksEnum MovieLinks { get; set; }
 
 		public BasePageModel()
 		{
 			TestText = "";
+			Menu = MenuEnum.Unspecified;
+			MovieLinks = MovieLinksEnum.None;
+			MetaPageDescription = "";
 		}
 
 

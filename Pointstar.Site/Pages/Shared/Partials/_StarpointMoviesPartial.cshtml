@@ -2,4 +2,186 @@
 @{
 }
 
-<h1>Starpoint Movies Partial</h1>
+
+@if (Model.MovieLinks != MovieLinksEnum.None)
+{
+	<h1>Download Demonstration Movies</h1>
+}
+
+@if (Model.MovieLinks == MovieLinksEnum.SuperSlug || Model.MovieLinks == MovieLinksEnum.All)
+{
+	<h4>Super Slug</h4>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/p4OtK5ZkC4c" target="_blank">Introduction to Super Slug</a>
+	</div>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/rd5pKf4fK-o" target="_blank">Importing Data Logger Files</a>
+	</div>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/xXN6u7m7afg" target="_blank">Using the Bouwer and Rice Graph</a>
+	</div>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/VCP1jCWDdsY" target="_blank">Using the Cooper, Bredehoeft, Papadopulos Type Curve</a>
+	</div>
+}
+
+
+@if (Model.MovieLinks == MovieLinksEnum.InfiniteExtent || Model.MovieLinks == MovieLinksEnum.All)
+{
+	<h4>Infinite Extent</h4>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/Kx-OJCNU33k" target="_blank">Introduction to Infinite Extent</a>
+	</div>
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/fGKY41otLvs" target="_blank">Importing Data Logger Files</a>
+	</div>
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/l8nHLBUpVBs" target="_blank">Using the Distance Drawdown Methods for Multiple Monitoring Wells</a>
+	</div>
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/3IHHpHqRWZI" target="_blank">Using the Theis Recovery Method</a>
+	</div>
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/cHZLh5d_z0Y" target="_blank">Type Curve Matching in Infinite Extent</a>
+	</div>
+}
+
+
+
+@if (Model.MovieLinks == MovieLinksEnum.StepMaster || Model.MovieLinks == MovieLinksEnum.All)
+{
+	<h4>StepMaster</h4>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/J4UXoQ2zpto" target="_blank">Introduction to StepMaster</a>
+	</div>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/igTpzTLPA7I" target="_blank">Using the Birsoy Summers Method</a>
+	</div>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/ggU4hrZWFts" target="_blank">Using the Eden-Hazel Method</a>
+	</div>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/jNgxv_g3oEE" target="_blank">Using the Hantush-Beirschenk Method</a>
+	</div>
+
+}
+
+@if (Model.MovieLinks == MovieLinksEnum.ChemPoint || Model.MovieLinks == MovieLinksEnum.All)
+{
+	<h4>ChemPoint</h4>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/Ml5NFqoQCB0" target="_blank">Introduction to ChemPoint Standard</a>
+	</div>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/NC9B7TEabSM" target="_blank">Entering Data Manually into ChemPoint</a>
+	</div>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/q5Q4_qH0D6I" target="_blank">Exporting Data from ChemPoint to ChemStat</a>
+	</div>
+
+
+
+	<h4>ChemPoint Professional</h4>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/dO8-TrS2il0" target="_blank">Introduction to ChemPoint Professional</a>
+	</div>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/4Jtz457gj0c" target="_blank">Creating Reports in ChemPoint Pro</a>
+	</div>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/QjZF5VBp6mI" target="_blank">Creating Graphs in ChemPoint Pro</a>
+	</div>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/ROL9ICcrFhI" target="_blank">Contouring in ChemPoint Pro</a>
+	</div>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/vygK3l4iAIY" target="_blank">Importing dBase Database Files</a>
+	</div>
+
+	<!---------   -->
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/dITctDSNMjQ" target="_blank">Create a new ChemPoint database in Microsoft SQL Server</a>
+	</div>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/AbEQ7Pv6Rzg" target="_blank">Installing Microsoft SQL Server Express (free edition)</a>
+	</div>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/JF1ImQ3t7MA" target="_blank">Copy Microsoft Access database to Microsoft SQL Server</a>
+	</div>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/q5Q4_qH0D6I" target="_blank">Exporting Data from ChemPoint to ChemStat</a>
+	</div>
+}
+
+
+@if (Model.MovieLinks == MovieLinksEnum.ChemStat || Model.MovieLinks == MovieLinksEnum.All)
+{
+	<h4>ChemStat</h4>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/-khkYoOQC08" target="_blank">Introduction to ChemStat</a>
+	</div>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/l5QQKACh104" target="_blank">Using the ChemStat Workbook</a>
+	</div>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/tR4NFSS4ptg" target="_blank">Using Scripts in ChemStat to Automate Statistical Analyses</a>
+	</div>
+
+	<div class="downloadlink">
+		<img src="/Images/YouTube.png" alt="YouTube" />
+		<a href="https://youtu.be/yEEBrWMUcMo" target="_blank">Importing Data Using the Universal Converter</a>
+	</div>
+
+}

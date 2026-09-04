@@ -5,7 +5,12 @@ namespace Pointstar.Site.Pages.Aquifer
 {
     public class IndexModel : BasePageModel
     {
-        public void OnGet()
+		public IndexModel()
+		{
+			Menu = MenuEnum.Aquifer;
+		}
+
+		public void OnGet()
         {
         }
     }
