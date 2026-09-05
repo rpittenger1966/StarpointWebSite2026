@@ -5,7 +5,12 @@ namespace Pointstar.Site.Pages.Support
 {
     public class Access2000Model : BasePageModel
     {
-        public void OnGet()
+		public Access2000Model()
+		{
+			Menu = MenuEnum.Support;
+		}
+
+		public void OnGet()
         {
         }
     }

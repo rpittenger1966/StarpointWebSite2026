@@ -5,7 +5,12 @@ namespace Pointstar.Site.Pages.Support
 {
     public class CSCrashModel : BasePageModel
     {
-        public void OnGet()
+		public CSCrashModel()
+		{
+			Menu = MenuEnum.Support;
+		}
+
+		public void OnGet()
         {
         }
     }

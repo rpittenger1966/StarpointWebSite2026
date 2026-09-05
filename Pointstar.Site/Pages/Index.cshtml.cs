@@ -10,6 +10,8 @@ namespace Pointstar.Site.Pages
 		public IndexModel(ILogger<IndexModel> logger)
 		{
 			_logger = logger;
+			Menu = MenuEnum.Unspecified;
+			MetaPageDescription = "Starpoint Software - Windows applications for Science and Engineering - Cincinnati, Ohio";
 		}
 
 		public void OnGet()

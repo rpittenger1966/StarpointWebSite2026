@@ -2,9 +2,48 @@
 @model Pointstar.Site.Pages.Support.CSCrashModel
 @{
 	Layout = "/Pages/Shared/_MainLayout.cshtml";
-	ViewData["Title"] = "Title Here";
-	ViewData["Caption"] = "Caption Here";
-	ViewData["Subcaption"] = "Subcaption Here";
+	ViewData["Title"] = "Starpoint Software Technical Support";
+	ViewData["Caption"] = "Technical Support";
+	ViewData["Subcaption"] = "Common Problems and Solutions";
+	ViewData["MetaDescription"] = "Starpoint Software Technical Support Knowledgebase - ChemStat crashes when shutting down.";
 }
 
-<p>CSCrash</p>
+<h2>ChemStat Crashes when Shutting Down</h2>
+<h3><b>Symptom:</b></h3>
+<p>
+	You get the &quot;illegal operation&quot;
+	message when shutting down ChemStat, even if there are no data in the
+	program.
+</p>
+<h3><b>Solution:</b></h3>
+<p>
+	Your version of the common Windows library
+	file <b> Comctl32.dll</b> is not compatible with ChemStat.&nbsp; You need to <a href="../Execs/comctl32.dll">
+		download
+		a more recent Comctl32.dll
+	</a> file and place it in your windows system
+	directory.
+</p>
+<p>The Windows System directory is usually:</p>
+<p>
+	<b>C:\Windows\system</b>
+	for Windows 95/98
+</p>
+<p>
+	<b>C:\Winnt\System32</b>
+	for Windows NT and Windows 2000.
+</p>
+<p>
+	When you place the <b> Comctl32.dll</b> file in
+	your Windows system directory, it should prompt you to replace the
+	existing file.&nbsp; ONLY replace the file if the file date of the
+	downloaded file is more recent than the file date for your current
+	file.&nbsp; If you are not prompted to replace the missing file, you
+	probably selected the wrong directory.&nbsp; From the Windows <b>Start</b>
+	button, select <b>Find | Files or Folders</b>, and search for the file <b>Comctl32.dll</b>.&nbsp; Note the folder containing the file, and place in that
+	folder the <b> Comctl32.dll</b> file that you downloaded.
+</p>
+<p>
+	After you have replaced the file, reboot
+	your computer.
+</p>

@@ -2,9 +2,266 @@
 @model Pointstar.Site.Pages.Starpoint.PricingModel
 @{
 	Layout = "/Pages/Shared/_MainLayout.cshtml";
-	ViewData["Title"] = "Title Here";
-	ViewData["Caption"] = "Caption Here";
-	ViewData["Subcaption"] = "Subcaption Here";
+	ViewData["Title"] = "Starpoint Software Price List";
+	ViewData["Caption"] = "Starpoint Price List";
+	ViewData["Subcaption"] = "Starpoint Software Prices and Licensing";
 }
 
-<p>Pricing</p>
+<h1>Starpoint Software Price List</h1>
+
+
+
+<h3>
+	Perpetual Single User Licensing:
+</h3>
+<ul>
+	<li>All products listed are available as <strong>single user licenses only</strong>.  Software may be installed on only one computer per license.&nbsp; Contact us for multi-user discounts or annual licenses.</li>
+	<li>There is no restriction on the numbers of monitored sites or facilities on which the software is used.</li>
+	<li>All licenses include <strong>free upgrades within one year of purchase</strong>.</li>
+	<li>All licenses are perpetual. All upgrades are optional. We cannot guarantee that any version you buy today will run on future versions of Windows.</li>
+</ul>
+
+<h4 align="left">All Prices in U.S. Dollars</h4>
+<h4 align="left">No &quot;Per Facility&quot; Fees!</h4>
+<p align="left">
+	<uc1:Bullet ID="bullet1" runat="server" />
+	<a href="#*Site Licenses:" target="_self">Academic Pricing and Replacement Disks</a>
+</p>
+
+
+
+
+
+<div class="ProductName">
+	ChemPoint<sup>®</sup>
+	Standard
+</div>
+
+<table border="0" width="100%">
+	<tr>
+		<td width="68%" class="pricetablerow">
+			Single User
+			License (One Computer)
+		</td>
+		<td width="32%" class="pricetablerow">
+			@Model.litChemPointStandard
+		</td>
+	</tr>
+	<tr>
+		<td width="68%" class="pricetablehighlight">
+			<font color="#000000">
+				Upgrade
+				from ChemPoint Standard Previous Version
+			</font>
+		</td>
+		<td width="32%" class="pricetablehighlight">
+			<font color="#000000">
+				@Model.litChemPointStdUpgrade
+			</font>
+		</td>
+	</tr>
+
+</table>
+
+<div class="ProductName">
+	ChemStat<sup>®</sup>
+</div>
+
+<table border="0" width="100%">
+	<tr>
+		<td width="68%" class="pricetablerow">
+			Single User
+			License (One Computer)
+		</td>
+		<td width="32%" class="pricetablerow">
+			@Model.litChemStatSingleUser
+		</td>
+	</tr>
+	<tr>
+		<td width="68%" class="pricetablehighlight">
+			Upgrade
+			from any previous version (Per-User)
+		</td>
+		<td width="32%" class="pricetablehighlight">
+			@Model.litChemStatUpgrade
+		</td>
+	</tr>
+</table>
+
+<div class="ProductName">
+	ChemPoint<sup>®</sup>
+	Standard and
+	ChemStat<sup>®</sup>
+</div>
+
+<table border="0" width="100%">
+	<tr>
+		<td width="68%" class="pricetablerow">
+			Single User
+			License
+		</td>
+		<td width="32%" class="pricetablerow">
+			@Model.litChemPointChemStat
+		</td>
+	</tr>
+</table>
+
+<div class="ProductName">
+	ChemPoint
+	Professional<sup>®</sup>   (with ChemStat)
+</div>
+
+<table border="0" width="100%">
+	<tr>
+		<td width="68%" class="pricetablerow">
+			Single User
+			License (One Computer)
+		</td>
+		<td width="32%" class="pricetablerow">
+			@Model.litChemPointPro
+		</td>
+	</tr>
+	<tr>
+		<td width="68%" class="pricetablehighlight">
+			<font color="#000000">
+				Upgrade
+				from ChemPoint Pro Previous Version
+			</font>
+		</td>
+		<td width="32%" class="pricetablehighlight">
+			<font color="#000000">
+				@Model.litChemPointProUpgrade
+			</font>
+		</td>
+	</tr>
+</table>
+
+<div class="fineprint">
+	<p>
+		ChemPoint Professional configurations supports MS Access and MS SQL Server on the desktop, client-server, or
+		enterprise configurations.
+	</p>
+</div>
+
+<div class="spacer"></div>
+<div class="horizontalline"></div>
+<div class="spacer"></div>
+
+<div class="ProductName">
+	Super Slug
+</div>
+
+<table border="0" width="100%">
+	<tr>
+		<td width="68%" class="pricetablerow">
+			Single User
+			License (One Computer)
+		</td>
+		<td width="32%" class="pricetablerow">
+			@Model.litSuperSlug
+		</td>
+	</tr>
+	<tr>
+		<td width="68%" class="pricetablehighlight">Super Slug Uppgrade (Single User)</td>
+		<td width="32%" class="pricetablehighlight">$100</td>
+	</tr>
+</table>
+
+<div class="spacer"></div>
+
+<div class="ProductName">
+	Infinite Extent
+</div>
+
+<table border="0" width="100%">
+	<tr>
+		<td width="68%" class="pricetablerow">
+			Single User
+			License (One Computer)
+		</td>
+		<td width="32%" class="pricetablerow">
+			@Model.litInfiniteExtent
+		</td>
+	</tr>
+	<tr>
+		<td width="68%" class="pricetablehighlight">Infinite Extent Uppgrade (Single User)</td>
+		<td width="32%" class="pricetablehighlight">$100</td>
+	</tr>
+</table>
+
+<div class="spacer"></div>
+
+<div class="ProductName">
+	StepMaster
+</div>
+
+<table border="0" width="100%">
+	<tr>
+		<td width="68%" class="pricetablerow">
+			Single User
+			License (One Computer)
+		</td>
+		<td width="32%" class="pricetablerow">
+			@Model.litStepMaster
+		</td>
+	</tr>
+	<tr>
+		<td width="68%" class="pricetablehighlight">StepMaster Uppgrade (Single User)</td>
+		<td width="32%" class="pricetablehighlight">$100</td>
+	</tr>
+</table>
+
+<div class="spacer"></div>
+
+<div class="ProductName">
+	Aquifer Testing
+	Package (IE, SS, SM)
+</div>
+
+
+<table border="0" width="100%">
+	<tr>
+		<td width="68%" class="pricetablerow">
+			Single User
+			License (One Computer)
+		</td>
+		<td width="32%" class="pricetablerow">
+			@Model.litAquiferTestPackage
+		</td>
+	</tr>
+</table>
+
+
+
+
+
+<div class="horizontalline"></div>
+
+<div class="fineprint">
+
+
+
+	<a name="*Site Licenses:"></a>
+
+	<div class="alert">
+		Academic Pricing:
+	</div>
+
+
+	<p align="left">Academic Pricing:&nbsp; <a href="contact.aspx">Call for Pricing</a>.&nbsp;</p>
+
+	<div class="alert">
+		Replacement Disks:
+	</div>
+
+	<p>
+		We are not able to provide replacement disks for any version older than the current versions of the software.  If you lost a disk for any version older than
+		the current version of the application, you will need to buy an upgrade
+		to replace your old version.  You do not need an older version installed to install an upgrade.
+	</p>
+
+
+
+
+
+</div>

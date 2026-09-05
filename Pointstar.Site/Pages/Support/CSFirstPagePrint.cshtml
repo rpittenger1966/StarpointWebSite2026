@@ -2,9 +2,45 @@
 @model Pointstar.Site.Pages.Support.CSFirstPagePrintModel
 @{
 	Layout = "/Pages/Shared/_MainLayout.cshtml";
-	ViewData["Title"] = "Title Here";
-	ViewData["Caption"] = "Caption Here";
-	ViewData["Subcaption"] = "Subcaption Here";
+	ViewData["Title"] = "Starpoint Software Technical Support";
+	ViewData["Caption"] = "Technical Support";
+	ViewData["Subcaption"] = "Common Problems and Solutions";
+	ViewData["MetaDescription"] = "Starpoint Software Technical Support Knowledgebase - ChemStat doesn't print the first page of a report";
 }
 
-<p>CS FirstPage Print</p>
+<h2>
+	<br>
+	ChemStat Does Not Print the First Page of a Report
+</h2>
+<h3><b>Symptom:</b></h3>
+<p>
+	You attempt to print a report in ChemStat,
+	but the first page is blank (or shows only headers and footers).
+</p>
+<h3><b>Details:</b></h3>
+<p>
+	We have never been able to duplicate this
+	problem at Starpoint Software, but it has occurred with a number of
+	customers.&nbsp; Diagnostics showed that all drawing commands are being
+	sent to Windows, but the text does not appear on the printer.&nbsp; With
+	one customer, printing was fine with Windows 2000, until they installed a
+	service pack.&nbsp; After installation of the service pack, the problem
+	appeared.&nbsp; Our tests with Windows 2000 were not able to duplicate the
+	problem.
+</p>
+<h3>&nbsp;</h3>
+<h3><b>Solution:</b></h3>
+<p>
+	There is a suitable workaround for this
+	problem.&nbsp; Simply add the report to the workbook and print the report
+	from the Workbook.&nbsp; This does not seem to cause the problem.&nbsp; If
+	this does not solve the problem, try adding a dummy report (any kind of
+	one page report) to the workbook in front of the report you wish to
+	print.&nbsp; Then print both reports.&nbsp; Finally, you could export the
+	reports to Rich Text Format (RTF) and print them from Microsoft Word.
+</p>
+<p>
+	Refer to ChemStat online help topics for
+	the workbook and for exporting to RTF for more information.
+</p>
+

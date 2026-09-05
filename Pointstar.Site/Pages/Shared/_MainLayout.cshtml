@@ -3,11 +3,14 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>@ViewData["Title"] - ArtWebSite.Site</title>
+	<title>@ViewData["Title"]</title>
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/css/StyleSheet.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/css/Common.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/@(nameof(Pointstar.Site)).styles.css" asp-append-version="true" />
+
+	<meta name="description" content="@ViewData["MetaDescription"]" />
+
 </head>
 <body>
 	<div id="wrapper">
@@ -46,9 +49,6 @@
 
 
 	</div>
-
-
-
 	
 
 

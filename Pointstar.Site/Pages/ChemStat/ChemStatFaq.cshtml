@@ -2,9 +2,472 @@
 @model Pointstar.Site.Pages.ChemStat.ChemStatFaqModel
 @{
 	Layout = "/Pages/Shared/_MainLayout.cshtml";
-	ViewData["Title"] = "Title Here";
-	ViewData["Caption"] = "Caption Here";
-	ViewData["Subcaption"] = "Subcaption Here";
+	ViewData["Title"] = "ChemStat FAQ";
+	ViewData["Caption"] = "ChemStat";
+	ViewData["Subcaption"] = "Frequently Asked Questions";
 }
 
-<h1>ChemStat FAQs</h1>
+<h1>
+	ChemPoint/ChemStat Frequently Asked Questions
+</h1>
+<div class="problem">
+	Q.&nbsp; Is it LAN compatible?<br />
+	<br />
+</div>
+
+<div class="solution">
+	A.&nbsp; Yes, you can run it from a LAN with the following
+	restrictions:<ul>
+		<li>The LAN must support long file names</li>
+		<li>
+			For ChemStat and
+			ChemPoint Standard edition, only one user can access a ChemPoint
+			database at a time (no sharing is allowed).&nbsp; <b>
+				ChemPoint
+				Professional does support file sharing
+			</b>.
+		</li>
+	</ul>
+</div>
+
+
+<div class="problem">
+	Q. Does it include all the regulatory methods in the USEPA
+	guidance documents?
+</div>
+<div class="solution">
+	A.&nbsp; It includes all methods that are
+	given &quot;significant attention&quot; in the 1989 and 1992 guidance
+	documents and the USEPA Unified Guidance.
+	The following methods are included:<ul>
+		<li>Box/Whiskers plot</li>
+		<li>Time-series plots</li>
+		<li>Probability Plot</li>
+		<li>Shewhart-CUSUM control chart.</li>
+		<li>
+			Parametric ANOVA with Bonferroni
+			comparison
+		</li>
+		<li>
+			Parametric, non-parametric, and Poisson
+			prediction limits
+		</li>
+		<li>
+			Parametric, non-parametric, and Poisson
+			tolerance limits
+		</li>
+		<li>Confidence interval</li>
+		<li>Kruskal-Wallis non-parametric</li>
+		<li>Wilcoxon Rank Sum non-parametric</li>
+		<li>Levene's Test for equal variance</li>
+		<li>Bartlett's Test for equal variance</li>
+		<li>
+			Shapiro-Wilks/Shapiro Francia for
+			Normality
+		</li>
+		<li>Coefficient of Variation for normality</li>
+		<li>Skewness</li>
+		<li>Aitchison's and Cohen's Adjustments</li>
+	</ul>
+	ChemStat also includes many graphs and
+	methods not mentioned in the guidance.
+</div>
+
+
+<div class="problem">
+	Q. Can you use it to compare data to a set point....ACL, MCL,
+	risk number or concentration limit?&nbsp; Can that be changed per well, per constituent?
+</div>
+<div class="solution">A.&nbsp; Yes.</div>
+
+<div class="problem">
+	Q.&nbsp; Can I pull up all the data in a spreadsheet format to check for missing data?
+</div>
+<div class="solution">
+	A.&nbsp; ChemStat:<br />
+	Not really in a spreadsheet format.&nbsp;
+	There is a general report that shows all of the data for a selected parameter.&nbsp; The
+	are grouped first by well, and then by sampling date.&nbsp; It is very easy to locate
+	missing data in that report<br />
+	<br />
+	A.&nbsp; ChemPoint:<br />
+	It is easy to locate missing data using
+	the data entry program, or the variety of reports that are available.
+</div>
+
+<div class="problem">
+	Q.&nbsp; Can I do an initial check for censored data and
+	outliers?
+</div>
+<div class="solution">
+	A.&nbsp; Yes in ChemStat.&nbsp; Dixon's test for
+	outliers, Rosner's test for outliers, and the Discordance Outlier Test are included.&nbsp; You can also
+	automatically exclude outliers.
+</div>
+
+
+<div class="problem">
+	<br />
+	<br />
+	Q.&nbsp; If there is more than one background well, can the software combine all
+	upgradient wells for background?
+</div>
+<div class="solution">
+	A.&nbsp; Yes, it does that by
+	default.&nbsp; However you can also compare each background well individually, but it is
+	more tedious.
+</div>
+
+<div class="problem">
+	<br />
+	Q.&nbsp; Will the software run the statistical&nbsp;method used by the
+	facility/consultant?
+</div>
+<div class="solution">
+	A.&nbsp; It can only run the methods it
+	supports. &nbsp; Additionally, there is always a possibility that two different software
+	applications will vary somewhat in how they implement the same statistical method. &nbsp;
+	For example, the 1989 and 1992 guidance docs provide two different implementations of
+	tolerance limits.&nbsp; There are also many variations on how prediction limits are
+	implemented among different statistical programs.
+</div>
+
+
+<div class="problem">Q.&nbsp; How does the software treat non-detects?</div>
+<div class="solution">
+	A.&nbsp; With ChemStat,
+	you have the option of replacing
+	them with:<ul>
+		<li>detection limit</li>
+		<li>DL/2</li>
+		<li>1</li>
+		<li>0</li>
+		<li>Cohen's Adjustment</li>
+		<li>Aitchison's Adjustment</li>
+	</ul>
+</div>
+
+<div class="problem">
+	Q.&nbsp; Will the software tell me if and why the
+	observations don't meet the performance requirements of the statistical method...such as:<br />
+	a. Too few observations to run an accurate test<br />
+	b. Too many non-detects<br />
+	c. If homogeneity of variance is required<br />
+	d. If normal background data is required<br />
+	e. If it is required that you start with an uncontaminated well<br />
+	f. If seasonality of data is present or will effect the performance standard of the
+	statistical method.<br />
+</div>
+<br />
+<br />
+<div class="solution">
+	A.&nbsp; a and b.&nbsp; Yes, but it let's you proceed anyway<br />
+	c, d, and e.&nbsp; These requirements are only specified in the documentation, not at the
+	time you run the test<br />
+	f.&nbsp; No.&nbsp; You must test for seasonality independent of the selected method.
+	&nbsp; ChemStat <b> does</b> includes tests for seasonality
+</div>
+
+
+<div class="problem">
+	<br />
+	<br />
+	Q. Will the software let you set a numerical standard for comparison (ground water
+	Protection Standard may be background, MCL or ACL (risk number)?
+</div>
+<div class="solution">
+	A.&nbsp; Yes.&nbsp; Some statistical
+	methods support this type of comparison.
+</div>
+
+<div class="problem">Q.&nbsp; What happens if all the samples are not concurrent?</div>
+<div class="solution">
+	A.&nbsp; That does not cause a problem
+	for any test. &nbsp; How this situation affects the test varies depending on the
+	statistical method.
+</div>
+
+<div class="problem">
+	Q.&nbsp; Will the software allow use of 4 independent samples
+	per constituent per well per event?
+</div>
+<div class="solution">
+	A.&nbsp; Yes.&nbsp; You have an option to
+	average them and use them as one sample, or use them as four independent samples.&nbsp; Of
+	course four sample from the same well on the same date should not be called
+	statistically independent.
+</div>
+
+<div class="problem">
+	Q.&nbsp; Will the software allow quarterly, semi-annual,
+	annual, monthly or other sampling frequency?
+</div>
+<div class="solution">
+	A.&nbsp; Yes, any sampling frequency is
+	allowed.
+</div>
+
+<div class="problem">
+	Q.&nbsp; What transformations of data will the software
+	allow?
+</div>
+<div class="solution">
+	A.&nbsp; The following transformations
+	are supported at this time:<ul>
+		<li>Original Data</li>
+		<li>Natural Logarithm</li>
+		<li>Log base 10</li>
+		<li>Square root</li>
+		<li>Cube root</li>
+	</ul>
+	More will be added as
+	they are requested.
+</div>
+
+
+<div class="problem">
+	Q.&nbsp; Can I have the software show me all the values for a
+	sampling event that are above detect, above MCL, above a risk based number?
+</div>
+<div class="solution">
+	A.&nbsp; Yes.&nbsp; There is a report
+	called a Threshold Report.&nbsp; It shows all analyses above a specified value.&nbsp;
+	ChemPoint also supports some similar reports.
+</div>
+
+
+<div class="problem">
+	Q.&nbsp; How easily can I develop a time trend?&nbsp; Box
+	plots?
+</div>
+<div class="solution">
+	A.&nbsp; Very easily.&nbsp; ChemStat has
+	very capable graphs available with just a menu click.&nbsp; Time trend graphs are
+	available for multiple wells for a single parameter, and multiple parameters for a single
+	well.&nbsp; ChemPoint Professional has even more powerful graphing
+	capabilities to trend plots.
+</div>
+
+
+<div class="problem">
+	Q.&nbsp; Will the software allow me to compare more than one
+	parameter at a time to see concurrent trends?
+</div>
+<div class="solution">
+	A.&nbsp; In ChemStat, the only multiple parameter
+	comparison is &nbsp; Concentration vs. Time plot that plots concentrations from any
+	parameters you select for a single well over time.&nbsp; All other graphs and statistical
+	methods are performed on one parameter at a time, and the calculations are completely
+	independent of any other parameters.
+	<p>
+		ChemPoint Professional
+		has some graphs that are very useful for comparing concentrations or
+		different parameters.
+	</p>
+</div>
+
+<div class="problem">
+	Q.&nbsp; How does the software require the background data
+	(from previous events) be set up?
+</div>
+<div class="solution">
+	A.&nbsp; Background data is set up the
+	same as compliance well data.&nbsp; You can specify which wells are background
+	wells.&nbsp; Using ChemPoint, you can specify a different date range for background
+	data than for compliance well data.
+</div>
+    &nbsp;
+
+
+<br />
+<br />
+<div class="problem">
+	Q.&nbsp; If a well triggers, how easily (quickly) can I go to the next further
+	downgradient well and see if it shows contamination as well?
+</div>
+<div class="solution">
+	A.&nbsp; Generally very easy, but it
+	depends on the statistical method.&nbsp; Some methods compare each compliance well
+	individually to background, so the statistical results for each well are displayed on the
+	same &quot;page&quot;.&nbsp; For other methods, you would have to open up to windows and
+	compare them side by side, which is easy to do.&nbsp; However the program is not able to
+	determine which the well is the next downgradient well.
+</div>
+    &nbsp;
+
+<div class="problem">
+	Q.&nbsp; Can ChemStat do two-tail analyses for a parameter
+	like pH?
+</div>
+<div class="solution">A.&nbsp; Yes, parametric prediction limits, Mann-Kendall test for trend, and Sen&#39;s slope estimator are all two-tailed tests available in ChemStat, among others</div>
+    &nbsp;
+
+<div class="problem">
+	Q.&nbsp; It appears that the only use for ChemPoint is to
+	generate reports.&nbsp; However, the manuals indicate that you need ChemPoint to translate
+	the data for export into ChemStat.&nbsp; Please clarify.
+</div>
+<div class="solution">
+	A.&nbsp; ChemPoint does generate reports,
+	but the more important function is to maintain the validity of your data and too keep all
+	data in a central location.&nbsp; ChemPoint allows you to make sure all parameters have
+	the correct name (no multiple names for the same parameter) and to make sure that you are
+	not missing data or have duplicate data that does not really exist.&nbsp; The importance
+	of maintaining data integrity can not be overemphasized.&nbsp; It is inadvisable to store
+	your data in Excel spreadsheets and convert the spreadsheet data every time you want to
+	perform statistics.&nbsp; It is just too easy to lose data.
+</div>
+    &nbsp;&nbsp;
+
+<div class="problem">
+	Q.&nbsp; If I input data as &quot;&lt;5&quot;, the database
+	knows to interpret this as not detected with a detection limit of 5?&nbsp; And then will
+	calculate statistics based on 1/2 of the detection limit for this value?
+</div>
+<div class="solution">
+	A.&nbsp; Yes, but you
+	have to tell it to do so.&nbsp; I assume you are using the
+	Universal Importer in ChemPoint to convert your data.&nbsp; In that case, you have to tell
+	the Universal Importer that non-detects are indicated by the presence of a
+	&quot;&lt;&quot; symbol. &nbsp; After the data are in ChemStat, you can specify whether
+	you want to represent non-detects by 0, 1, 1/2 DL, or DL.
+</div>
+    &nbsp;
+
+<div class="problem">
+	Q.&nbsp; For parameters such as specific conductivity and pH,
+	units are not in ppm or ppb.&nbsp; I assume that units such as umhos/cm or pH standard
+	units are identifiable by the database?
+</div>
+<div class="solution">
+	A.&nbsp; Yes.&nbsp; ChemStat converts all
+	values to ppb if that is appropriate (if that option is selected).&nbsp; Standard units for pH and umhos/cm do not
+	convert to ppb, so they are not converted.&nbsp; ChemPoint has more
+	extensive unit conversion support.&nbsp; In ChemPoint, you can add custom
+	units and specify conversion factors.
+</div>
+    &nbsp;
+
+<div class="problem">Q.&nbsp; Why should I have ChemStat convert all values to ppb?</div>
+<div class="solution">
+	A.&nbsp; It is possible
+	to import data without converting to parts-per-billion, but the conversion
+	is recommended.&nbsp; All statistical comparisons must
+	be with consistent units.&nbsp; ppb was chosen because it is commonly used and it is rare
+	to have detected values below 1 ppb.&nbsp; It is important that your statistical data all
+	be 0 or greater than 1.&nbsp; Otherwise, log transformations produce negative numbers.
+	&nbsp; ChemStat will still work with values less than 1, but you must be careful taking
+	the log of such values.
+</div>
+    &nbsp;
+
+<div class="problem">
+	Q.&nbsp; If the detection limits between different sets of
+	data are varying, does the database set the detection limit as one value, or does it vary
+	with the sample data set?
+</div>
+<div class="solution">
+	A.&nbsp; The detection limit is always
+	the value specified for a particular analysis.&nbsp; If the reported detection limits
+	vary, that is how they will appear in the database.
+</div>
+    &nbsp;
+
+    &nbsp;
+
+<div class="problem">
+	Q.&nbsp; When setting up new sampling events, and/or parameter groups in ChemPoint
+	4.0, how are replicates handled?  Can they be added to a parameter group, or
+	must each replicate be dragged and dropped to a sample location or container
+	individually?  I've tried adding them to a parameter group, but when the
+	file is exported to ChemStat and an analysis conducted, some replicates are
+	excluded from the test.  For example, the test would include replicates
+	designated with the &quot;a&quot; code but would ignore the &quot;b&quot;, &quot;c&quot;, and &quot;d&quot; coded
+	replicates.
+</div>
+
+<div class="solution">
+	A.&nbsp; Replicates can be
+	added to a parameter group and then added to the container as part of the
+	group.&nbsp; Be careful when importing replicates into ChemStat.&nbsp; There
+	is an option to average all parameter concentrations for the same
+	date.&nbsp; Make sure that option is <b>not</b> selected (although
+	statistically, you should not consider replicates as independent
+	samples).&nbsp; You should be able to create replicates in ChemPoint and
+	have them maintain their &quot;replicate status&quot; in
+	ChemStat.&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+
+
+
+<div class="problem">
+	Q.&nbsp; Is is correct to assume that if the data for a certain
+	well/parameter is log-normally distributed, then the data must be kept in
+	its logarithmic form for all other tests?
+</div>
+
+
+<div class="solution">
+	A.&nbsp; Yes, but only for <b>parametric</b>
+	tests.&nbsp; You can have data that is not log-normal, and do a
+	non-parametric test on it because normality is not required.
+</div>
+
+
+
+<div class="solution">
+	But the one-word answer to your
+	question is yes.
+</div>
+
+
+<div class="problem">
+	Q.&nbsp; Is there a way to delete a sample date (and all analyses on
+	that date) or delete a single sample (container) and/or parameter for a
+	sampling event? We have a sample date previous to Subtitle D and the
+	State wants us to remove the data.&nbsp; In addition we had a mistake in
+	entering and have several parameters that we need to delete (i.e. pH,
+	versus pH, field) and some dissolved metals data that the State wants
+	removed from the database.
+</div>
+<div class="solution">
+	A.&nbsp; Yes, you
+	can delete an entire sampling date and all data for that date, but it is
+	not recommended.&nbsp;There are other ways to exclude the data from a
+	statistical analysis or graph.
+</div>
+        &nbsp;
+
+<div class="problem">
+	Q.&nbsp; Is there a way to reorder the parameter list to another order
+	(e.g. according to Appendix I parameter number)?<br />
+</div>
+
+
+
+<div class="solution">
+	A.&nbsp; Yes. Go to the <b>
+		Facility Parameter
+		View
+	</b> in ChemPoint. Drag and drop the parameters so that they are in
+	the desired order. The select <b>Reorder</b> from the <b>Data</b> menu.
+	That will reorder all of the parameters to the new order both for data
+	entry and for reports.
+</div>
+        &nbsp;
+<div class="problem">
+	Q.&nbsp; I tried importing some data for a single well into
+	ChemStat and
+	I get a results report but no data seems to be available for the
+	graphing component.&nbsp; I have also attached this file from ChemStat.
+</div>
+
+<div class="solution">
+	A.&nbsp; The problem is that you
+	did not specify the well gradients.&nbsp; You need to specify well
+	gradients in ChemStat by selecting <b>Change Well Gradients</b> from the
+	<b>Options</b> menu.&nbsp; Only data from wells that are listed as
+	up-gradient or down-gradient will be graphed.&nbsp; Data from wells
+	classified as &quot;unused&quot; are not graphed.
+</div>
+

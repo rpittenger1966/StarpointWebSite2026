@@ -5,7 +5,11 @@ namespace Pointstar.Site.Pages.Starpoint
 {
     public class RegulatoryLicensingModel : BasePageModel
 	{
-        public void OnGet()
+		public RegulatoryLicensingModel()
+		{
+		}
+
+		public void OnGet()
         {
         }
     }

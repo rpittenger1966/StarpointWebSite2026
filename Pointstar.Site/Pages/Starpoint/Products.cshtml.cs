@@ -5,7 +5,12 @@ namespace Pointstar.Site.Pages.Starpoint
 {
     public class ProductsModel : BasePageModel
 	{
-        public void OnGet()
+		public ProductsModel()
+		{
+			MetaPageDescription = "Starpoint Software products - Windows applications for science and engineering.";
+		}
+
+		public void OnGet()
         {
         }
     }

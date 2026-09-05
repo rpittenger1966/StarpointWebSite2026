@@ -1,4 +1,46 @@
-﻿@page
-@model Pointstar.Site.Pages.Shared._MainNoContentsLayoutModel
-@{
-}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"]</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/StyleSheet.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/Common.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/@(nameof(Pointstar.Site)).styles.css" asp-append-version="true" />
+
+	<meta name="description" content="@ViewData["MetaDescription"]" />
+
+</head>
+<body>
+	<div id="wrapper">
+
+		<partial name="_HeaderPartial" />
+
+
+		<div class="pagebody">
+
+			<div class="pagecontentfull">
+				<main role="main" class="pb-3">
+					@RenderBody()
+				</main>
+			</div>
+
+		</div>
+
+		<partial name="_FooterPartial" />
+
+
+	</div>
+
+
+
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+
+	@await RenderSectionAsync("Scripts", required: false)
+
+
+</body>
+</html>
