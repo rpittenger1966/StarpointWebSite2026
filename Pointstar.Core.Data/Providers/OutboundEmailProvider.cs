@@ -13,7 +13,7 @@ namespace Pointstar.Core.Data.Providers
 		{
 		}
 
-		public async Task InsertOutboundEmailAsync(OutboundEmail entity)
+		public async Task<int> InsertOutboundEmailAsync(OutboundEmail entity)
 		{
 			SqlConnection con = null;
 
@@ -21,7 +21,7 @@ namespace Pointstar.Core.Data.Providers
 			{
 				using (con = SqlConnectionFactory.GetSqlConnection(_connectionString))
 				{
-					await InsertOutboundEmailAsync(con, entity);
+					return await InsertOutboundEmailAsync(con, entity);
 				}
 			}
 			catch
@@ -34,7 +34,7 @@ namespace Pointstar.Core.Data.Providers
 			}
 		}
 
-		public async Task InsertOutboundEmailAsync(SqlConnection con, OutboundEmail entity)
+		public async Task<int> InsertOutboundEmailAsync(SqlConnection con, OutboundEmail entity)
 		{
 			string sql = @"INSERT INTO [dbo].[OutboundEmail]
            ([OrderID]
@@ -42,31 +42,54 @@ namespace Pointstar.Core.Data.Providers
            ,[Type]
            ,[Subject]
            ,[Recipient]
-           ,[Body]
+           
+		   ,[Body]
            ,[Exception]
            ,[Cookie]
            ,[IPAddress]
            ,[Status]
-           ,[Created])
+           
+		   ,[Created])
      VALUES
-           (<OrderID, uniqueidentifier,>
-           ,<MemberID, uniqueidentifier,>
-           ,<Type, varchar(50),>
-           ,<Subject, varchar(300),>
-           ,<Recipient, varchar(300),>
-           ,<Body, varchar(max),>
-           ,<Exception, varchar(max),>
-           ,<Cookie, varchar(50),>
-           ,<IPAddress, varchar(50),>
-           ,<Status, varchar(20),>
-           ,<Created, datetime,>);";
+           (@OrderID
+           ,@MemberID
+           ,@Type
+           ,@Subject
+           ,@Recipient
+           
+		   ,@Body
+           ,@Exception
+           ,@Cookie
+           ,@IPAddress
+           ,@Status
+           
+		   ,getdate());";
 
 
 			using (SqlCommand command = new SqlCommand(sql, con))
 			{
-				command.Parameters.AddWithValue("ID", entity.ID);
+				if (entity.OrderID.HasValue)
+					command.Parameters.AddWithValue("OrderID", entity.OrderID.Value);
+				else
+					command.Parameters.AddWithValue("OrderID", DBNull.Value);
+				if (entity.MemberID.HasValue)
+					command.Parameters.AddWithValue("MemberID", entity.MemberID);
+				else
+					command.Parameters.AddWithValue("MemberID", DBNull.Value);
+				command.Parameters.AddWithValue("Type", entity.Type);
+				command.Parameters.AddWithValue("Subject", entity.Subject);
+				command.Parameters.AddWithValue("Recipient", entity.Recipient);
 
-				await command.ExecuteNonQueryAsync();
+				command.Parameters.AddWithValue("Body", entity.Body);
+				command.Parameters.AddWithValue("Exception", entity.Exception);
+				command.Parameters.AddWithValue("Cookie", entity.Cookie);
+				command.Parameters.AddWithValue("IPAddress", entity.IPAddress);
+				command.Parameters.AddWithValue("Status", entity.Status);
+
+				object o = await command.ExecuteScalarAsync();
+
+				int retval = Convert.ToInt32(o);
+				return retval;
 			}
 		}
 
@@ -116,7 +139,7 @@ namespace Pointstar.Core.Data.Providers
 		}
 
 
-		public async Task<OutboundEmail> GetByIdAsync(Guid id)
+		public async Task<OutboundEmail> GetByIdAsync(int id)
 		{
 			if (id == null) return null;
 
@@ -139,10 +162,10 @@ namespace Pointstar.Core.Data.Providers
 			}
 		}
 
-		public async Task<OutboundEmail> GetByIdAsync(SqlConnection con, Guid id)
+		public async Task<OutboundEmail> GetByIdAsync(SqlConnection con, int id)
 		{
 
-			string sql = $"SELECT * FROM [dbo].[OutboundEmail] where ID = '{id}';";
+			string sql = $"SELECT * FROM [dbo].[OutboundEmail] where ID = {id};";
 
 
 			try

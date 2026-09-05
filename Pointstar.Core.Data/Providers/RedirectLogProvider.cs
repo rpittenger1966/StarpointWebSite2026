@@ -46,20 +46,34 @@ namespace Pointstar.Core.Data.Providers
            ,[IPAddress]
            ,[Created])
      VALUES
-           (<ID, uniqueidentifier,>
-           ,<RedirectID, uniqueidentifier,>
-           ,<FileName, varchar(250),>
-           ,<MemberID, uniqueidentifier,>
-           ,<SiteVisitID, uniqueidentifier,>
-           ,<VisitorID, uniqueidentifier,>
-           ,<IPAddress, varchar(20),>
-           ,<Created, datetime,>)
-;";
+           (@ID
+           ,@RedirectID
+           ,@FileName
+           ,@MemberID
+           ,@SiteVisitID
+           ,@VisitorID
+           ,@IPAddress
+           ,getdate());";
 
 
 			using (SqlCommand command = new SqlCommand(sql, con))
 			{
 				command.Parameters.AddWithValue("ID", entity.ID);
+				command.Parameters.AddWithValue("RedirectID", entity.RedirectID);
+				command.Parameters.AddWithValue("FileName", entity.FileName);
+				if (entity.MemberID.HasValue)
+					command.Parameters.AddWithValue("MemberID", entity.MemberID.Value);
+				else
+					command.Parameters.AddWithValue("MemberID", DBNull.Value);
+				if (entity.SiteVisitID.HasValue)
+					command.Parameters.AddWithValue("SiteVisitID", entity.SiteVisitID.Value);
+				else
+					command.Parameters.AddWithValue("SiteVisitID", DBNull.Value);
+				if (entity.VisitorID.HasValue)
+					command.Parameters.AddWithValue("VisitorID", entity.VisitorID.Value);
+				else
+					command.Parameters.AddWithValue("VisitorID", DBNull.Value);
+				command.Parameters.AddWithValue("IPAddress", entity.IPAddress);
 
 				await command.ExecuteNonQueryAsync();
 			}

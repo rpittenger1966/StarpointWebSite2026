@@ -44,18 +44,21 @@ namespace Pointstar.Core.Data.Providers
            ,[OtherProductUpdates]
            ,[ProductSurveys])
      VALUES
-           (<EmailAddress, varchar(100),>
-           ,<Created, datetime,>
-           ,<Newsletter, bit,>
-           ,<YourProductUpdates, bit,>
-           ,<OtherProductUpdates, bit,>
-           ,<ProductSurveys, bit,>);
-;";
+           (@EmailAddress
+           ,getdate()
+           ,@Newsletter
+           ,@YourProductUpdates
+           ,@OtherProductUpdates
+           ,@ProductSurveys);";
 
 
 			using (SqlCommand command = new SqlCommand(sql, con))
 			{
 				command.Parameters.AddWithValue("EmailAddress", entity.EmailAddress);
+				command.Parameters.AddWithValue("Newsletter", entity.Newsletter);
+				command.Parameters.AddWithValue("YourProductUpdates", entity.YourProductUpdates);
+				command.Parameters.AddWithValue("OtherProductUpdates", entity.OtherProductUpdates);
+				command.Parameters.AddWithValue("ProductSurveys", entity.ProductSurveys);
 
 				await command.ExecuteNonQueryAsync();
 			}
@@ -107,9 +110,9 @@ namespace Pointstar.Core.Data.Providers
 		}
 
 
-		public async Task<CommunicationPreferences> GetByIdAsync(Guid id)
+		public async Task<CommunicationPreferences> GetByEmailAddressAsync(string emailAddress)
 		{
-			if (id == null) return null;
+			if (String.IsNullOrEmpty(emailAddress)) return null;
 
 			SqlConnection con = null;
 
@@ -117,7 +120,7 @@ namespace Pointstar.Core.Data.Providers
 			{
 				using (con = SqlConnectionFactory.GetSqlConnection(_connectionString))
 				{
-					return await GetByIdAsync(id);
+					return await GetByEmailAddressAsync(emailAddress);
 				}
 			}
 			catch
@@ -130,10 +133,10 @@ namespace Pointstar.Core.Data.Providers
 			}
 		}
 
-		public async Task<CommunicationPreferences> GetByIdAsync(SqlConnection con, Guid id)
+		public async Task<CommunicationPreferences> GetByEmailAddressAsync(SqlConnection con, string emailAddress)
 		{
 
-			string sql = $"SELECT * FROM [dbo].[CommunicationPreferences] where ID = '{id}';";
+			string sql = $"SELECT * FROM [dbo].[CommunicationPreferences] where [EmailAddress] = '{emailAddress}';";
 
 
 			try
@@ -187,22 +190,22 @@ namespace Pointstar.Core.Data.Providers
 		public async Task UpdateCommunicationPreferencesAsync(SqlConnection con, CommunicationPreferences entity)
 		{
 			string sql = @"UPDATE [dbo].[CommunicationPreferences]
-   SET [EmailAddress] = <EmailAddress, varchar(100),>
-      ,[Created] = <Created, datetime,>
-      ,[Newsletter] = <Newsletter, bit,>
-      ,[YourProductUpdates] = <YourProductUpdates, bit,>
-      ,[OtherProductUpdates] = <OtherProductUpdates, bit,>
-      ,[ProductSurveys] = <ProductSurveys, bit,>
- WHERE <Search Conditions,,>
-
-
-		";
+   SET [Newsletter] = @Newsletter
+      ,[YourProductUpdates] = @YourProductUpdates
+      ,[OtherProductUpdates] = @OtherProductUpdates
+      ,[ProductSurveys] = @ProductSurveys
+ WHERE [EmailAddress] = @EmailAddress;
+ 		";
 
 			try
 			{
 				using (SqlCommand command = new SqlCommand(sql, con))
 				{
-//					command.Parameters.AddWithValue("ID", entity.ID);
+					command.Parameters.AddWithValue("EmailAddress", entity.EmailAddress);
+					command.Parameters.AddWithValue("Newsletter", entity.Newsletter);
+					command.Parameters.AddWithValue("YourProductUpdates", entity.YourProductUpdates);
+					command.Parameters.AddWithValue("OtherProductUpdates", entity.OtherProductUpdates);
+					command.Parameters.AddWithValue("ProductSurveys", entity.ProductSurveys);
 
 					await command.ExecuteNonQueryAsync();
 				}

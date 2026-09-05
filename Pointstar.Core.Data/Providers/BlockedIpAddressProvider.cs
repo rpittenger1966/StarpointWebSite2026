@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -43,17 +44,19 @@ namespace Pointstar.Core.Data.Providers
            ,[Active]
            ,[Created])
      VALUES
-           (<IpAddress, nvarchar(20),>
-           ,<ErrorMessage, nvarchar(max),>
-           ,<RequestUrl, nvarchar(300),>
-           ,<Active, bit,>
-           ,<Created, datetime,>));
-;";
+           (@IpAddress
+           ,@ErrorMessage
+           ,@RequestUrl
+           ,@Active
+           ,getdate());";
 
 
 			using (SqlCommand command = new SqlCommand(sql, con))
 			{
-//				command.Parameters.AddWithValue("ID", entity.ID);
+				command.Parameters.AddWithValue("IpAddress", entity.IpAddress);
+				command.Parameters.AddWithValue("ErrorMessage", entity.ErrorMessage);
+				command.Parameters.AddWithValue("RequestUrl", entity.RequestUrl);
+				command.Parameters.AddWithValue("Active", entity.Active);
 
 				await command.ExecuteNonQueryAsync();
 			}
@@ -105,9 +108,9 @@ namespace Pointstar.Core.Data.Providers
 		}
 
 
-		public async Task<BlockedIpAddress> GetByIdAsync(Guid id)
+		public async Task<BlockedIpAddress> GetByIpAddressAsync(string ipAddress)
 		{
-			if (id == null) return null;
+			if (String.IsNullOrEmpty(ipAddress)) return null;
 
 			SqlConnection con = null;
 
@@ -115,7 +118,7 @@ namespace Pointstar.Core.Data.Providers
 			{
 				using (con = SqlConnectionFactory.GetSqlConnection(_connectionString))
 				{
-					return await GetByIdAsync(id);
+					return await GetByIpAddressAsync(ipAddress);
 				}
 			}
 			catch
@@ -128,10 +131,10 @@ namespace Pointstar.Core.Data.Providers
 			}
 		}
 
-		public async Task<BlockedIpAddress> GetByIdAsync(SqlConnection con, Guid id)
+		public async Task<BlockedIpAddress> GetByIpAddressAsync(SqlConnection con, string ipAddress)
 		{
 
-			string sql = $"SELECT * FROM [dbo].[BlockedIpAddress] where ID = '{id}';";
+			string sql = $"SELECT * FROM [dbo].[BlockedIpAddress] where [IPAddress] = '{ipAddress}';";
 
 
 			try
@@ -196,13 +199,17 @@ namespace Pointstar.Core.Data.Providers
 			{
 				using (SqlCommand command = new SqlCommand(sql, con))
 				{
+					command.Parameters.AddWithValue("IpAddress", entity.IpAddress);
+					command.Parameters.AddWithValue("ErrorMessage", entity.ErrorMessage);
+					command.Parameters.AddWithValue("RequestUrl", entity.RequestUrl);
+					command.Parameters.AddWithValue("Active", entity.Active);
 
 					await command.ExecuteNonQueryAsync();
 				}
 			}
 			catch (Exception ex)
 			{
-//				throw new Exception($"Failed to update BlockedIpAddress {entity.ID} for {entity.CustomerEmailAddress}");
+				throw new Exception($"Failed to update BlockedIpAddress {entity.IpAddress}");
 			}
 		}
 

@@ -42,22 +42,69 @@ namespace Pointstar.Core.Data.Providers
            ,[OrderID]
            ,[Created])
      VALUES
-           (<OrderLineItemID, uniqueidentifier,>
-           ,<RedirectID, uniqueidentifier,>
-           ,<OrderID, uniqueidentifier,>
-           ,<Created, datetime,>);
-;";
+           (@OrderLineItemID
+           ,@RedirectID
+           ,@OrderID
+           ,getdate());";
 
 
 			using (SqlCommand command = new SqlCommand(sql, con))
 			{
 				command.Parameters.AddWithValue("OrderLineItemID", entity.OrderLineItemID);
+				command.Parameters.AddWithValue("RedirectID", entity.RedirectID);
+				command.Parameters.AddWithValue("OrderID", entity.OrderID);
 
 				await command.ExecuteNonQueryAsync();
 			}
 		}
 
-		public async Task<List<LxOrderLineItemRedirect>> GetLxOrderLineItemRedirectsAsync()
+		//public async Task<List<LxOrderLineItemRedirect>> GetLxOrderLineItemRedirectsAsync()
+		//{
+		//	SqlConnection con = null;
+
+		//	try
+		//	{
+		//		using (con = SqlConnectionFactory.GetSqlConnection(_connectionString))
+		//		{
+		//			return await GetLxOrderLineItemRedirectsAsync(con);
+		//		}
+		//	}
+		//	catch
+		//	{
+		//		throw;
+		//	}
+		//	finally
+		//	{
+		//		con?.Close();
+		//	}
+		//}
+
+		//public async Task<List<LxOrderLineItemRedirect>> GetLxOrderLineItemRedirectsAsync(SqlConnection con)
+		//{
+		//	string sql = "SELECT * FROM [dbo].[LxOrderLineItemRedirect] order by [Created] desc";
+
+		//	List<LxOrderLineItemRedirect> clientList = new List<LxOrderLineItemRedirect>();
+
+		//	using (SqlCommand command = new SqlCommand(sql, con))
+		//	{
+		//		using (SqlDataReader reader = await command.ExecuteReaderAsync())
+		//		{
+		//			while (reader.Read())
+		//			{
+		//				LxOrderLineItemRedirect client = LxOrderLineItemRedirectDataReader.BuildFromDataReader(reader);
+		//				if (client != null)
+		//				{
+		//					clientList.Add(client);
+		//				}
+		//			}
+		//		}
+		//	}
+
+		//	return clientList;
+		//}
+
+
+		public async Task<LxOrderLineItemRedirect> GetByOrderLineItemIDAsync(Guid orderLineItemID)
 		{
 			SqlConnection con = null;
 
@@ -65,7 +112,7 @@ namespace Pointstar.Core.Data.Providers
 			{
 				using (con = SqlConnectionFactory.GetSqlConnection(_connectionString))
 				{
-					return await GetLxOrderLineItemRedirectsAsync(con);
+					return await GetByOrderLineItemIDAsync(orderLineItemID);
 				}
 			}
 			catch
@@ -78,58 +125,10 @@ namespace Pointstar.Core.Data.Providers
 			}
 		}
 
-		public async Task<List<LxOrderLineItemRedirect>> GetLxOrderLineItemRedirectsAsync(SqlConnection con)
-		{
-			string sql = "SELECT * FROM [dbo].[LxOrderLineItemRedirect] order by [Created] desc";
-
-			List<LxOrderLineItemRedirect> clientList = new List<LxOrderLineItemRedirect>();
-
-			using (SqlCommand command = new SqlCommand(sql, con))
-			{
-				using (SqlDataReader reader = await command.ExecuteReaderAsync())
-				{
-					while (reader.Read())
-					{
-						LxOrderLineItemRedirect client = LxOrderLineItemRedirectDataReader.BuildFromDataReader(reader);
-						if (client != null)
-						{
-							clientList.Add(client);
-						}
-					}
-				}
-			}
-
-			return clientList;
-		}
-
-
-		public async Task<LxOrderLineItemRedirect> GetByIdAsync(Guid id)
-		{
-			if (id == null) return null;
-
-			SqlConnection con = null;
-
-			try
-			{
-				using (con = SqlConnectionFactory.GetSqlConnection(_connectionString))
-				{
-					return await GetByIdAsync(id);
-				}
-			}
-			catch
-			{
-				throw;
-			}
-			finally
-			{
-				con?.Close();
-			}
-		}
-
-		public async Task<LxOrderLineItemRedirect> GetByIdAsync(SqlConnection con, Guid id)
+		public async Task<LxOrderLineItemRedirect> GetByOrderLineItemIDAsync(SqlConnection con, Guid orderLineItemID)
 		{
 
-			string sql = $"SELECT * FROM [dbo].[LxOrderLineItemRedirect] where ID = '{id}';";
+			string sql = $"SELECT * FROM [dbo].[LxOrderLineItemRedirect] where [OrderLineItemID] = '{orderLineItemID}';";
 
 
 			try

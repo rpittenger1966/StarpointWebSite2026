@@ -42,52 +42,89 @@ namespace Pointstar.Core.Data.Providers
            ,[OrderID]
            ,[ProductID]
            ,[ProductLicenseID]
-           ,[ProductDescription]
+           
+		   ,[ProductDescription]
            ,[LicenseDescription]
            ,[Price]
            ,[Quantity]
            ,[DiscountAmount]
-           ,[DiscountPercent]
+           
+		   ,[DiscountPercent]
            ,[LineTotal]
            ,[PromotionCode]
            ,[OrderStatus]
            ,[OrderComments]
-           ,[RefundedDate]
+           
+		   ,[RefundedDate]
            ,[RefundedMessage]
            ,[VoidedDate]
            ,[VoidedMessage]
-           ,[Created]
-           ,[LastModified])
+           ,[Created])
      VALUES
-           (<ID, uniqueidentifier,>
-           ,<MemberID, uniqueidentifier,>
-           ,<OrderID, uniqueidentifier,>
-           ,<ProductID, int,>
-           ,<ProductLicenseID, uniqueidentifier,>
-           ,<ProductDescription, varchar(300),>
-           ,<LicenseDescription, varchar(300),>
-           ,<Price, decimal(18,0),>
-           ,<Quantity, int,>
-           ,<DiscountAmount, decimal(18,0),>
-           ,<DiscountPercent, float,>
-           ,<LineTotal, decimal(18,0),>
-           ,<PromotionCode, varchar(25),>
-           ,<OrderStatus, int,>
-           ,<OrderComments, varchar(max),>
-           ,<RefundedDate, datetime,>
-           ,<RefundedMessage, varchar(max),>
-           ,<VoidedDate, datetime,>
-           ,<VoidedMessage, varchar(max),>
-           ,<Created, datetime,>
-           ,<LastModified, datetime,>)
+           (@ID
+           ,@MemberID
+           ,@OrderID
+           ,@ProductID
+           ,@ProductLicenseID
+           
+		   ,@ProductDescription
+           ,@LicenseDescription
+           ,@Price
+           ,@Quantity
+           ,@DiscountAmount
+           
+		   ,@DiscountPercent
+           ,@LineTotal
+           ,@PromotionCode
+           ,@OrderStatus
+           ,@OrderComments
+           
+		   ,@RefundedDate
+           ,@RefundedMessage
+           ,@VoidedDate
+           ,@VoidedMessage
+           ,getdate())
 ;";
 
 
 			using (SqlCommand command = new SqlCommand(sql, con))
 			{
 				command.Parameters.AddWithValue("ID", entity.ID);
+				if (entity.MemberID.HasValue)
+					command.Parameters.AddWithValue("MemberID", entity.MemberID.Value);
+				else
+					command.Parameters.AddWithValue("MemberID", DBNull.Value);
+				command.Parameters.AddWithValue("OrderID", entity.OrderID);
+				command.Parameters.AddWithValue("ProductID", entity.ProductID);
+				command.Parameters.AddWithValue("ProductLicenseID", entity.ProductLicenseID);
 
-//				command.Parameters.AddWithValue("Status", entity.Status);
+				command.Parameters.AddWithValue("ProductDescription", entity.ProductDescription);
+				command.Parameters.AddWithValue("LicenseDescription", entity.LicenseDescription);
+				command.Parameters.AddWithValue("Price", entity.Price);
+				command.Parameters.AddWithValue("Quantity", entity.Quantity);
+				command.Parameters.AddWithValue("DiscountAmount", entity.DiscountAmount);
+
+				command.Parameters.AddWithValue("DiscountPercent", entity.DiscountPercent);
+				command.Parameters.AddWithValue("LineTotal", entity.LineTotal);
+				command.Parameters.AddWithValue("PromotionCode", entity.PromotionCode);
+				if (entity.OrderStatus.HasValue)
+					command.Parameters.AddWithValue("OrderStatus", entity.OrderStatus.Value);
+				else
+					command.Parameters.AddWithValue("OrderStatus", DBNull.Value);
+				command.Parameters.AddWithValue("OrderComments", entity.OrderComments);
+
+				if (entity.RefundedDate.HasValue)
+					command.Parameters.AddWithValue("RefundedDate", entity.RefundedDate.Value);
+				else
+					command.Parameters.AddWithValue("RefundedDate", DBNull.Value);
+				command.Parameters.AddWithValue("RefundedMessage", entity.RefundedMessage);
+				if (entity.VoidedDate.HasValue)
+					command.Parameters.AddWithValue("VoidedDate", entity.VoidedDate.Value);
+				else
+					command.Parameters.AddWithValue("VoidedDate", DBNull.Value);
+				command.Parameters.AddWithValue("VoidedMessage", entity.VoidedMessage);
+
+				//				command.Parameters.AddWithValue("Status", entity.Status);
 
 				await command.ExecuteNonQueryAsync();
 			}

@@ -42,81 +42,100 @@ namespace Pointstar.Core.Data.Providers
            ,[FirstName]
            ,[LastName]
            ,[StartDate]
-           ,[EndDate]
+           
+		   ,[EndDate]
            ,[Exception]
            ,[Result]
            ,[TransactionDuration]
            ,[OrderDescription]
-           ,[ChargeAmount]
+           
+		   ,[ChargeAmount]
            ,[TestMode])
      VALUES
-           (<PostValues, xml,>
-           ,<ResponseValues, varchar(max),>
-           ,<FirstName, varchar(50),>
-           ,<LastName, varchar(50),>
-           ,<StartDate, datetime,>
-           ,<EndDate, datetime,>
-           ,<Exception, varchar(max),>
-           ,<Result, int,>
-           ,<TransactionDuration, int,>
-           ,<OrderDescription, varchar(50),>
-           ,<ChargeAmount, decimal(18,0),>
-           ,<TestMode, bit,>)
-;";
+           (@PostValues
+           ,@ResponseValues
+           ,@FirstName
+           ,@LastName
+           ,@StartDate
+           
+		   ,@EndDate
+           ,@Exception
+           ,@Result
+           ,@TransactionDuration
+           ,@OrderDescription
+           
+		   ,@ChargeAmount
+           ,@TestMode);";
 
 
 			using (SqlCommand command = new SqlCommand(sql, con))
 			{
-				command.Parameters.AddWithValue("ID", entity.ID);
+				command.Parameters.AddWithValue("PostValues", entity.PostValues.ToString());
+				command.Parameters.AddWithValue("ResponseValues", entity.ResponseValues);
+				command.Parameters.AddWithValue("FirstName", entity.FirstName);
+				command.Parameters.AddWithValue("LastName", entity.LastName);
+				command.Parameters.AddWithValue("StartDate", entity.StartDate);
+
+				command.Parameters.AddWithValue("EndDate", entity.EndDate);
+				if (entity.Exception != null)
+					command.Parameters.AddWithValue("Exception", entity.Exception);
+				else
+					command.Parameters.AddWithValue("Exception", DBNull.Value);
+				command.Parameters.AddWithValue("Result", entity.Result);
+				command.Parameters.AddWithValue("TransactionDuration", entity.TransactionDuration);
+				command.Parameters.AddWithValue("OrderDescription", entity.OrderDescription);
+
+				command.Parameters.AddWithValue("ChargeAmount", entity.ChargeAmount);
+				command.Parameters.AddWithValue("TestMode", entity.TestMode);
 
 				await command.ExecuteNonQueryAsync();
 			}
 		}
 
-		public async Task<List<AuthorizeNetTransaction>> GetAuthorizeNetTransactionsAsync()
-		{
-			SqlConnection con = null;
+		//public async Task<List<AuthorizeNetTransaction>> GetAuthorizeNetTransactionsAsync()
+		//{
+		//	SqlConnection con = null;
 
-			try
-			{
-				using (con = SqlConnectionFactory.GetSqlConnection(_connectionString))
-				{
-					return await GetAuthorizeNetTransactionsAsync(con);
-				}
-			}
-			catch
-			{
-				throw;
-			}
-			finally
-			{
-				con?.Close();
-			}
-		}
+		//	try
+		//	{
+		//		using (con = SqlConnectionFactory.GetSqlConnection(_connectionString))
+		//		{
+		//			return await GetAuthorizeNetTransactionsAsync(con);
+		//		}
+		//	}
+		//	catch
+		//	{
+		//		throw;
+		//	}
+		//	finally
+		//	{
+		//		con?.Close();
+		//	}
+		//}
 
-		public async Task<List<AuthorizeNetTransaction>> GetAuthorizeNetTransactionsAsync(SqlConnection con)
-		{
-			string sql = "SELECT * FROM [dbo].[AuthorizeNetTransaction] order by [Created] desc";
+		//public async Task<List<AuthorizeNetTransaction>> GetAuthorizeNetTransactionsAsync(SqlConnection con)
+		//{
+		//	string sql = "SELECT * FROM [dbo].[AuthorizeNetTransaction] order by [ID] desc";
 
-			List<AuthorizeNetTransaction> clientList = new List<AuthorizeNetTransaction>();
+		//	List<AuthorizeNetTransaction> clientList = new List<AuthorizeNetTransaction>();
 
-			using (SqlCommand command = new SqlCommand(sql, con))
-			{
-				using (SqlDataReader reader = await command.ExecuteReaderAsync())
-				{
-					while (reader.Read())
-					{
-						AuthorizeNetTransaction client = AuthorizeNetTransactionDataReader.BuildFromDataReader(reader);
-						if (client != null)
-						{
-							clientList.Add(client);
-						}
-					}
-				}
-			}
+		//	using (SqlCommand command = new SqlCommand(sql, con))
+		//	{
+		//		using (SqlDataReader reader = await command.ExecuteReaderAsync())
+		//		{
+		//			while (reader.Read())
+		//			{
+		//				AuthorizeNetTransaction client = AuthorizeNetTransactionDataReader.BuildFromDataReader(reader);
+		//				if (client != null)
+		//				{
+		//					clientList.Add(client);
+		//				}
+		//			}
+		//		}
+		//	}
 
-			return clientList;
-		}
+		//	return clientList;
+		//}
 
 
 		public async Task<AuthorizeNetTransaction> GetByIdAsync(Guid id)
@@ -142,10 +161,10 @@ namespace Pointstar.Core.Data.Providers
 			}
 		}
 
-		public async Task<AuthorizeNetTransaction> GetByIdAsync(SqlConnection con, Guid id)
+		public async Task<AuthorizeNetTransaction> GetByIdAsync(SqlConnection con, int id)
 		{
 
-			string sql = $"SELECT * FROM [dbo].[AuthorizeNetTransaction] where ID = '{id}';";
+			string sql = $"SELECT * FROM [dbo].[AuthorizeNetTransaction] where ID = {id};";
 
 
 			try

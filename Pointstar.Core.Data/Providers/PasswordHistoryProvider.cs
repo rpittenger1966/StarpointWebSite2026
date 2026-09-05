@@ -43,24 +43,25 @@ namespace Pointstar.Core.Data.Providers
            ,[PasswordSalt]
            ,[PasswordHashAlgorithm]
            ,[Created]
-           ,[CreatedBy]
-           ,[LastModified]
-           ,[LastModifiedBy])
+           ,[CreatedBy])
      VALUES
-           (<ID, uniqueidentifier,>
-           ,<MemberID, uniqueidentifier,>
-           ,<Password, varchar(50),>
-           ,<PasswordSalt, varchar(50),>
-           ,<PasswordHashAlgorithm, int,>
-           ,<Created, datetime,>
-           ,<CreatedBy, varchar(50),>
-           ,<LastModified, datetime,>
-           ,<LastModifiedBy, varchar(50),>);";
+           (@ID
+           ,@MemberID
+           ,@Password
+           ,@PasswordSalt
+           ,@PasswordHashAlgorithm
+           ,getdate()
+           ,@CreatedBy);";
 
 
 			using (SqlCommand command = new SqlCommand(sql, con))
 			{
 				command.Parameters.AddWithValue("ID", entity.ID);
+				command.Parameters.AddWithValue("MemberID", entity.MemberID);
+				command.Parameters.AddWithValue("Password", entity.Password);
+				command.Parameters.AddWithValue("PasswordSalt", entity.PasswordSalt);
+				command.Parameters.AddWithValue("PasswordHashAlgorithm", entity.PasswordHashAlgorithm);
+				command.Parameters.AddWithValue("CreatedBy", this._userId);
 
 				await command.ExecuteNonQueryAsync();
 			}

@@ -42,109 +42,183 @@ namespace Pointstar.Core.Data.Providers
            ,[DisplayName]
            ,[EmailAddress]
            ,[EmailAddressLower]
-           ,[Salutation]
+           
+		   ,[Salutation]
            ,[FirstName]
            ,[MiddleName]
            ,[LastName]
            ,[CompanyName]
-           ,[Suffix]
+           
+		   ,[Suffix]
            ,[JobTitle]
            ,[Address1]
            ,[Address2]
            ,[Address3]
-           ,[City]
+           
+		   ,[City]
            ,[StateProvince]
            ,[StateCode]
            ,[PostalCode]
            ,[Country]
-           ,[CountryCode]
+           
+		   ,[CountryCode]
            ,[PrimaryPhone]
            ,[PrimaryPhoneExt]
            ,[PrimaryPhoneDigits]
            ,[PrimaryPhoneType]
-           ,[AlternatePhone]
+           
+		   ,[AlternatePhone]
            ,[AlternatePhoneExt]
            ,[AlternatePhoneDigits]
            ,[AlternatePhoneType]
            ,[Encryption]
-           ,[Password]
+           
+		   ,[Password]
            ,[PasswordSalt]
            ,[PasswordHashAlgorithm]
            ,[MustResetPassword]
            ,[SignupDate]
-           ,[Cookie]
+           
+		   ,[Cookie]
            ,[IPAddress]
            ,[MemberStatus]
            ,[RememberMe]
            ,[Permissions]
-           ,[EmailOptIn]
+           
+		   ,[EmailOptIn]
            ,[CampaignID]
            ,[MembershipLevel]
            ,[LastActivity]
            ,[VisitorID]
-           ,[ExternalID]
+           
+		   ,[ExternalID]
            ,[CreatedBy]
            ,[Created]
-           ,[LastModifiedBy]
-           ,[LastModified]
            ,[EmailAddress2])
      VALUES
-           (<ID, uniqueidentifier,>
-           ,<CompanyID, uniqueidentifier,>
-           ,<DisplayName, varchar(50),>
-           ,<EmailAddress, varchar(100),>
-           ,<EmailAddressLower, varchar(100),>
-           ,<Salutation, varchar(10),>
-           ,<FirstName, varchar(50),>
-           ,<MiddleName, varchar(50),>
-           ,<LastName, varchar(50),>
-           ,<CompanyName, varchar(80),>
-           ,<Suffix, varchar(20),>
-           ,<JobTitle, varchar(50),>
-           ,<Address1, varchar(50),>
-           ,<Address2, varchar(40),>
-           ,<Address3, varchar(40),>
-           ,<City, varchar(50),>
-           ,<StateProvince, varchar(50),>
-           ,<StateCode, varchar(5),>
-           ,<PostalCode, varchar(50),>
-           ,<Country, varchar(50),>
-           ,<CountryCode, varchar(5),>
-           ,<PrimaryPhone, varchar(20),>
-           ,<PrimaryPhoneExt, varchar(10),>
-           ,<PrimaryPhoneDigits, varchar(20),>
-           ,<PrimaryPhoneType, int,>
-           ,<AlternatePhone, varchar(20),>
-           ,<AlternatePhoneExt, varchar(10),>
-           ,<AlternatePhoneDigits, varchar(20),>
-           ,<AlternatePhoneType, int,>
-           ,<Encryption, int,>
-           ,<Password, varchar(50),>
-           ,<PasswordSalt, varchar(50),>
-           ,<PasswordHashAlgorithm, int,>
-           ,<MustResetPassword, bit,>
-           ,<SignupDate, datetime,>
-           ,<Cookie, varchar(50),>
-           ,<IPAddress, varchar(50),>
-           ,<MemberStatus, int,>
-           ,<RememberMe, bit,>
-           ,<Permissions, int,>
-           ,<EmailOptIn, bit,>
-           ,<CampaignID, int,>
-           ,<MembershipLevel, int,>
-           ,<LastActivity, datetime,>
-           ,<VisitorID, uniqueidentifier,>
-           ,<ExternalID, varchar(50),>
-           ,<CreatedBy, varchar(50),>
-           ,<Created, datetime,>
-           ,<LastModifiedBy, varchar(50),>
-           ,<LastModified, datetime,>
-           ,<EmailAddress2, varchar(100),>);";
+           (@ID
+           ,@CompanyID
+           ,@DisplayName
+           ,@EmailAddress
+           ,@EmailAddressLower
+           ,@Salutation
+           ,@FirstName
+           ,@MiddleName
+           ,@LastName
+           ,@CompanyName
+           ,@Suffix
+           ,@JobTitle
+           ,@Address1
+           ,@Address2
+           ,@Address3
+           ,@City
+           ,@StateProvince
+           ,@StateCode
+           ,@PostalCode
+           ,@Country
+           ,@CountryCode
+           ,@PrimaryPhone
+           ,@PrimaryPhoneExt
+           ,@PrimaryPhoneDigits
+           ,@PrimaryPhoneType
+           ,@AlternatePhone
+           ,@AlternatePhoneExt
+           ,@AlternatePhoneDigits
+           ,@AlternatePhoneType
+           ,@Encryption
+           ,@Password
+           ,@PasswordSalt
+           ,@PasswordHashAlgorithm
+           ,@MustResetPassword
+           ,@SignupDate
+           ,@Cookie
+           ,@IPAddress
+           ,@MemberStatus
+           ,@RememberMe
+           ,@Permissions
+           ,@EmailOptIn
+           ,@CampaignID
+           ,@MembershipLevel
+           ,@LastActivity
+           ,@VisitorID
+           ,@ExternalID
+           ,@CreatedBy
+           ,getdate()
+           ,@EmailAddress2);";
 
 
 			using (SqlCommand command = new SqlCommand(sql, con))
 			{
 				command.Parameters.AddWithValue("ID", entity.ID);
+				if (entity.CompanyID.HasValue)
+					command.Parameters.AddWithValue("CompanyID", entity.CompanyID);
+				else
+					command.Parameters.AddWithValue("CompanyID", DBNull.Value);
+				command.Parameters.AddWithValue("DisplayName", entity.DisplayName);
+				command.Parameters.AddWithValue("EmailAddress", entity.EmailAddress);
+				command.Parameters.AddWithValue("EmailAddressLower", entity.EmailAddress.ToLower());
+
+				command.Parameters.AddWithValue("Salutation", entity.Salutation);
+				command.Parameters.AddWithValue("FirstName", entity.FirstName);
+				command.Parameters.AddWithValue("MiddleName", entity.MiddleName);
+				command.Parameters.AddWithValue("LastName", entity.LastName);
+				command.Parameters.AddWithValue("CompanyName", entity.CompanyName);
+
+				command.Parameters.AddWithValue("Suffix", entity.Suffix);
+				command.Parameters.AddWithValue("JobTitle", entity.JobTitle);
+				command.Parameters.AddWithValue("Address1", entity.Address1);
+				command.Parameters.AddWithValue("Address2", entity.Address2);
+				command.Parameters.AddWithValue("Address3", entity.Address3);
+
+				command.Parameters.AddWithValue("City", entity.City);
+				command.Parameters.AddWithValue("StateProvince", entity.StateProvince);
+				command.Parameters.AddWithValue("StateCode", entity.StateCode);
+				command.Parameters.AddWithValue("PostalCode", entity.PostalCode);
+				command.Parameters.AddWithValue("Country", entity.Country);
+
+				command.Parameters.AddWithValue("CountryCode", entity.CountryCode);
+				command.Parameters.AddWithValue("PrimaryPhone", entity.PrimaryPhone);
+				command.Parameters.AddWithValue("PrimaryPhoneExt", entity.PrimaryPhoneExt);
+				command.Parameters.AddWithValue("PrimaryPhoneDigits", entity.PrimaryPhoneDigits);
+				command.Parameters.AddWithValue("PrimaryPhoneType", entity.PrimaryPhoneType);
+
+				command.Parameters.AddWithValue("AlternatePhone", entity.AlternatePhone);
+				command.Parameters.AddWithValue("AlternatePhoneExt", entity.AlternatePhoneExt);
+				command.Parameters.AddWithValue("AlternatePhoneDigits", entity.AlternatePhoneDigits);
+				command.Parameters.AddWithValue("AlternatePhoneType", entity.AlternatePhoneType);
+				command.Parameters.AddWithValue("Encryption", entity.Encryption);
+
+				command.Parameters.AddWithValue("Password", entity.Password);
+				command.Parameters.AddWithValue("PasswordSalt", entity.PasswordSalt);
+				command.Parameters.AddWithValue("PasswordHashAlgorithm", entity.PasswordHashAlgorithm);
+				command.Parameters.AddWithValue("MustResetPassword", entity.MustResetPassword);
+				command.Parameters.AddWithValue("SignupDate", entity.SignupDate);
+
+				command.Parameters.AddWithValue("Cookie", entity.Cookie);
+				command.Parameters.AddWithValue("IPAddress", entity.IPAddress);
+				command.Parameters.AddWithValue("MemberStatus", entity.MemberStatus);
+				command.Parameters.AddWithValue("RememberMe", entity.RememberMe);
+				command.Parameters.AddWithValue("Permissions", entity.Permissions);
+
+				command.Parameters.AddWithValue("EmailOptIn", entity.EmailOptIn);
+				if (entity.CampaignID.HasValue)
+					command.Parameters.AddWithValue("CampaignID", entity.CampaignID);
+				else
+					command.Parameters.AddWithValue("CampaignID", DBNull.Value);
+				command.Parameters.AddWithValue("MembershipLevel", entity.MembershipLevel);
+				command.Parameters.AddWithValue("LastActivity", entity.LastActivity);
+				if (entity.VisitorID.HasValue)
+					command.Parameters.AddWithValue("VisitorID", entity.VisitorID);
+				else
+					command.Parameters.AddWithValue("VisitorID", DBNull.Value);
+
+				command.Parameters.AddWithValue("ExternalID", entity.ExternalID);
+				command.Parameters.AddWithValue("CreatedBy", this._userId);
+
+				if (!String.IsNullOrEmpty(entity.EmailAddress2))
+					command.Parameters.AddWithValue("EmailAddress2", entity.EmailAddress2);
+				else
+					command.Parameters.AddWithValue("EmailAddress2", DBNull.Value);
 
 				await command.ExecuteNonQueryAsync();
 			}
@@ -276,60 +350,55 @@ namespace Pointstar.Core.Data.Providers
 		public async Task UpdateMemberAsync(SqlConnection con, Member entity)
 		{
 			string sql = @"UPDATE [dbo].[Member]
-   SET [ID] = <ID, uniqueidentifier,>
-      ,[CompanyID] = <CompanyID, uniqueidentifier,>
-      ,[DisplayName] = <DisplayName, varchar(50),>
-      ,[EmailAddress] = <EmailAddress, varchar(100),>
-      ,[EmailAddressLower] = <EmailAddressLower, varchar(100),>
-      ,[Salutation] = <Salutation, varchar(10),>
-      ,[FirstName] = <FirstName, varchar(50),>
-      ,[MiddleName] = <MiddleName, varchar(50),>
-      ,[LastName] = <LastName, varchar(50),>
-      ,[CompanyName] = <CompanyName, varchar(80),>
-      ,[Suffix] = <Suffix, varchar(20),>
-      ,[JobTitle] = <JobTitle, varchar(50),>
-      ,[Address1] = <Address1, varchar(50),>
-      ,[Address2] = <Address2, varchar(40),>
-      ,[Address3] = <Address3, varchar(40),>
-      ,[City] = <City, varchar(50),>
-      ,[StateProvince] = <StateProvince, varchar(50),>
-      ,[StateCode] = <StateCode, varchar(5),>
-      ,[PostalCode] = <PostalCode, varchar(50),>
-      ,[Country] = <Country, varchar(50),>
-      ,[CountryCode] = <CountryCode, varchar(5),>
-      ,[PrimaryPhone] = <PrimaryPhone, varchar(20),>
-      ,[PrimaryPhoneExt] = <PrimaryPhoneExt, varchar(10),>
-      ,[PrimaryPhoneDigits] = <PrimaryPhoneDigits, varchar(20),>
-      ,[PrimaryPhoneType] = <PrimaryPhoneType, int,>
-      ,[AlternatePhone] = <AlternatePhone, varchar(20),>
-      ,[AlternatePhoneExt] = <AlternatePhoneExt, varchar(10),>
-      ,[AlternatePhoneDigits] = <AlternatePhoneDigits, varchar(20),>
-      ,[AlternatePhoneType] = <AlternatePhoneType, int,>
-      ,[Encryption] = <Encryption, int,>
-      ,[Password] = <Password, varchar(50),>
-      ,[PasswordSalt] = <PasswordSalt, varchar(50),>
-      ,[PasswordHashAlgorithm] = <PasswordHashAlgorithm, int,>
-      ,[MustResetPassword] = <MustResetPassword, bit,>
-      ,[SignupDate] = <SignupDate, datetime,>
-      ,[Cookie] = <Cookie, varchar(50),>
-      ,[IPAddress] = <IPAddress, varchar(50),>
-      ,[MemberStatus] = <MemberStatus, int,>
-      ,[RememberMe] = <RememberMe, bit,>
-      ,[Permissions] = <Permissions, int,>
-      ,[EmailOptIn] = <EmailOptIn, bit,>
-      ,[CampaignID] = <CampaignID, int,>
-      ,[MembershipLevel] = <MembershipLevel, int,>
-      ,[LastActivity] = <LastActivity, datetime,>
-      ,[VisitorID] = <VisitorID, uniqueidentifier,>
-      ,[ExternalID] = <ExternalID, varchar(50),>
-      ,[CreatedBy] = <CreatedBy, varchar(50),>
-      ,[Created] = <Created, datetime,>
-      ,[LastModifiedBy] = <LastModifiedBy, varchar(50),>
-      ,[LastModified] = <LastModified, datetime,>
-      ,[EmailAddress2] = <EmailAddress2, varchar(100),>
- WHERE <Search Conditions,,>
-
-
+   SET [CompanyID] = @CompanyID
+      ,[DisplayName] = @DisplayName
+      ,[EmailAddress] = @EmailAddress
+      ,[EmailAddressLower] = @EmailAddressLower
+      ,[Salutation] = @Salutation
+      ,[FirstName] = @FirstName
+      ,[MiddleName] = @MiddleName
+      ,[LastName] = @LastName
+      ,[CompanyName] = @CompanyName
+      ,[Suffix] = @Suffix
+      ,[JobTitle] = @JobTitle
+      ,[Address1] = @Address1
+      ,[Address2] = @Address2
+      ,[Address3] = @Address3
+      ,[City] = @City
+      ,[StateProvince] = @StateProvince
+      ,[StateCode] = @StateCode
+      ,[PostalCode] = @PostalCode
+      ,[Country] = @Country
+      ,[CountryCode] = @CountryCode
+      ,[PrimaryPhone] = @PrimaryPhone
+      ,[PrimaryPhoneExt] = @PrimaryPhoneExt
+      ,[PrimaryPhoneDigits] = @PrimaryPhoneDigits
+      ,[PrimaryPhoneType] = @PrimaryPhoneType
+      ,[AlternatePhone] = @AlternatePhone
+      ,[AlternatePhoneExt] = @AlternatePhoneExt
+      ,[AlternatePhoneDigits] = @AlternatePhoneDigits
+      ,[AlternatePhoneType] = @AlternatePhoneType
+      ,[Encryption] = @Encryption
+      ,[Password] = @Password
+      ,[PasswordSalt] = @PasswordSalt
+      ,[PasswordHashAlgorithm] = @PasswordHashAlgorithm
+      ,[MustResetPassword] = @MustResetPassword
+      ,[SignupDate] = @SignupDate
+      ,[Cookie] = @Cookie
+      ,[IPAddress] = @IPAddress
+      ,[MemberStatus] = @MemberStatus
+      ,[RememberMe] = @RememberMe
+      ,[Permissions] = @Permissions
+      ,[EmailOptIn] = @EmailOptIn
+      ,[CampaignID] = @CampaignID
+      ,[MembershipLevel] = @MembershipLevel
+      ,[LastActivity] = @LastActivity
+      ,[VisitorID] = @VisitorID
+      ,[ExternalID] = @ExternalID
+      ,[LastModifiedBy] = @LastModifiedBy
+      ,[LastModified] = getdate()
+      ,[EmailAddress2] = @EmailAddress2
+ WHERE ID=@ID;
 		";
 
 			try
@@ -337,6 +406,75 @@ namespace Pointstar.Core.Data.Providers
 				using (SqlCommand command = new SqlCommand(sql, con))
 				{
 					command.Parameters.AddWithValue("ID", entity.ID);
+					if (entity.CompanyID.HasValue)
+						command.Parameters.AddWithValue("CompanyID", entity.CompanyID);
+					else
+						command.Parameters.AddWithValue("CompanyID", DBNull.Value);
+					command.Parameters.AddWithValue("DisplayName", entity.DisplayName);
+					command.Parameters.AddWithValue("EmailAddress", entity.EmailAddress);
+					command.Parameters.AddWithValue("EmailAddressLower", entity.EmailAddress.ToLower());
+
+					command.Parameters.AddWithValue("Salutation", entity.Salutation);
+					command.Parameters.AddWithValue("FirstName", entity.FirstName);
+					command.Parameters.AddWithValue("MiddleName", entity.MiddleName);
+					command.Parameters.AddWithValue("LastName", entity.LastName);
+					command.Parameters.AddWithValue("CompanyName", entity.CompanyName);
+
+					command.Parameters.AddWithValue("Suffix", entity.Suffix);
+					command.Parameters.AddWithValue("JobTitle", entity.JobTitle);
+					command.Parameters.AddWithValue("Address1", entity.Address1);
+					command.Parameters.AddWithValue("Address2", entity.Address2);
+					command.Parameters.AddWithValue("Address3", entity.Address3);
+
+					command.Parameters.AddWithValue("City", entity.City);
+					command.Parameters.AddWithValue("StateProvince", entity.StateProvince);
+					command.Parameters.AddWithValue("StateCode", entity.StateCode);
+					command.Parameters.AddWithValue("PostalCode", entity.PostalCode);
+					command.Parameters.AddWithValue("Country", entity.Country);
+
+					command.Parameters.AddWithValue("CountryCode", entity.CountryCode);
+					command.Parameters.AddWithValue("PrimaryPhone", entity.PrimaryPhone);
+					command.Parameters.AddWithValue("PrimaryPhoneExt", entity.PrimaryPhoneExt);
+					command.Parameters.AddWithValue("PrimaryPhoneDigits", entity.PrimaryPhoneDigits);
+					command.Parameters.AddWithValue("PrimaryPhoneType", entity.PrimaryPhoneType);
+
+					command.Parameters.AddWithValue("AlternatePhone", entity.AlternatePhone);
+					command.Parameters.AddWithValue("AlternatePhoneExt", entity.AlternatePhoneExt);
+					command.Parameters.AddWithValue("AlternatePhoneDigits", entity.AlternatePhoneDigits);
+					command.Parameters.AddWithValue("AlternatePhoneType", entity.AlternatePhoneType);
+					command.Parameters.AddWithValue("Encryption", entity.Encryption);
+
+					command.Parameters.AddWithValue("Password", entity.Password);
+					command.Parameters.AddWithValue("PasswordSalt", entity.PasswordSalt);
+					command.Parameters.AddWithValue("PasswordHashAlgorithm", entity.PasswordHashAlgorithm);
+					command.Parameters.AddWithValue("MustResetPassword", entity.MustResetPassword);
+					command.Parameters.AddWithValue("SignupDate", entity.SignupDate);
+
+					command.Parameters.AddWithValue("Cookie", entity.Cookie);
+					command.Parameters.AddWithValue("IPAddress", entity.IPAddress);
+					command.Parameters.AddWithValue("MemberStatus", entity.MemberStatus);
+					command.Parameters.AddWithValue("RememberMe", entity.RememberMe);
+					command.Parameters.AddWithValue("Permissions", entity.Permissions);
+
+					command.Parameters.AddWithValue("EmailOptIn", entity.EmailOptIn);
+					if (entity.CampaignID.HasValue)
+						command.Parameters.AddWithValue("CampaignID", entity.CampaignID);
+					else
+						command.Parameters.AddWithValue("CampaignID", DBNull.Value);
+					command.Parameters.AddWithValue("MembershipLevel", entity.MembershipLevel);
+					command.Parameters.AddWithValue("LastActivity", entity.LastActivity);
+					if (entity.VisitorID.HasValue)
+						command.Parameters.AddWithValue("VisitorID", entity.VisitorID);
+					else
+						command.Parameters.AddWithValue("VisitorID", DBNull.Value);
+
+					command.Parameters.AddWithValue("ExternalID", entity.ExternalID);
+					command.Parameters.AddWithValue("LastModifiedBy", this._userId);
+
+					if (!String.IsNullOrEmpty(entity.EmailAddress2))
+						command.Parameters.AddWithValue("EmailAddress2", entity.EmailAddress2);
+					else
+						command.Parameters.AddWithValue("EmailAddress2", DBNull.Value);
 
 					await command.ExecuteNonQueryAsync();
 				}

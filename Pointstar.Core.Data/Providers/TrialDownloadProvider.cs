@@ -42,73 +42,128 @@ namespace Pointstar.Core.Data.Providers
            ,[MemberID]
            ,[IPAddress]
            ,[FirstName]
-           ,[LastName]
+           
+		   ,[LastName]
            ,[CompanyName]
            ,[JobTitle]
            ,[Address1]
            ,[Address2]
-           ,[City]
+           
+		   ,[City]
            ,[StateProvince]
            ,[StateCode]
            ,[PostalCode]
            ,[Country]
-           ,[CountryCode]
+           
+		   ,[CountryCode]
            ,[PrimaryPhone]
            ,[PrimaryPhoneExt]
            ,[PrimaryPhoneDigits]
            ,[PrimaryPhoneType]
-           ,[ChemPoint]
+           
+		   ,[ChemPoint]
            ,[ChemStat]
            ,[ChemPointPro]
            ,[InfiniteExtent]
            ,[SuperSlug]
-           ,[StepMaster]
+           
+		   ,[StepMaster]
            ,[MohrView]
            ,[SieveGraph]
            ,[Movies]
            ,[Created]
-           ,[EmailAddress]
+           
+		   ,[EmailAddress]
            ,[Taafi])
      VALUES
-           (<VisitorID, uniqueidentifier,>
-           ,<SiteVisitID, uniqueidentifier,>
-           ,<MemberID, uniqueidentifier,>
-           ,<IPAddress, varchar(20),>
-           ,<FirstName, varchar(50),>
-           ,<LastName, varchar(50),>
-           ,<CompanyName, varchar(80),>
-           ,<JobTitle, varchar(50),>
-           ,<Address1, varchar(50),>
-           ,<Address2, varchar(40),>
-           ,<City, varchar(50),>
-           ,<StateProvince, varchar(50),>
-           ,<StateCode, varchar(5),>
-           ,<PostalCode, varchar(50),>
-           ,<Country, varchar(50),>
-           ,<CountryCode, varchar(5),>
-           ,<PrimaryPhone, varchar(20),>
-           ,<PrimaryPhoneExt, varchar(10),>
-           ,<PrimaryPhoneDigits, varchar(20),>
-           ,<PrimaryPhoneType, int,>
-           ,<ChemPoint, bit,>
-           ,<ChemStat, bit,>
-           ,<ChemPointPro, bit,>
-           ,<InfiniteExtent, bit,>
-           ,<SuperSlug, bit,>
-           ,<StepMaster, bit,>
-           ,<MohrView, bit,>
-           ,<SieveGraph, bit,>
-           ,<Movies, bit,>
-           ,<Created, datetime,>
-           ,<EmailAddress, varchar(100),>
-           ,<Taafi, bit,>)
-;
-;";
+           (@VisitorID
+           ,@SiteVisitID
+           ,@MemberID
+           ,@IPAddress
+           ,@FirstName
+           
+		   ,@LastName
+           ,@CompanyName
+           ,@JobTitle
+           ,@Address1
+           ,@Address2
+           
+		   ,@City
+           ,@StateProvince
+           ,@StateCode
+           ,@PostalCode
+           ,@Country
+           
+		   ,@CountryCode
+           ,@PrimaryPhone
+           ,@PrimaryPhoneExt
+           ,@PrimaryPhoneDigits
+           ,@PrimaryPhoneType
+           
+		   ,@ChemPoint
+           ,@ChemStat
+           ,@ChemPointPro
+           ,@InfiniteExtent
+           ,@SuperSlug
+           
+		   ,@StepMaster
+           ,@MohrView
+           ,@SieveGraph
+           ,@Movies
+           ,getdate()
+           
+		   ,@EmailAddress
+           ,@Taafi);";
 
 
 			using (SqlCommand command = new SqlCommand(sql, con))
 			{
-				command.Parameters.AddWithValue("ID", entity.ID);
+				if (entity.VisitorID.HasValue)
+					command.Parameters.AddWithValue("VisitorID", entity.VisitorID.Value);
+				else
+					command.Parameters.AddWithValue("VisitorID", DBNull.Value);
+				if (entity.SiteVisitID.HasValue)
+					command.Parameters.AddWithValue("SiteVisitID", entity.SiteVisitID.Value);
+				else
+					command.Parameters.AddWithValue("SiteVisitID", DBNull.Value);
+				if (entity.MemberID.HasValue)
+					command.Parameters.AddWithValue("MemberID", entity.MemberID.Value);
+				else
+					command.Parameters.AddWithValue("MemberID", DBNull.Value);
+				command.Parameters.AddWithValue("IPAddress", entity.IPAddress);
+				command.Parameters.AddWithValue("FirstName", entity.FirstName);
+
+				command.Parameters.AddWithValue("LastName", entity.LastName);
+				command.Parameters.AddWithValue("CompanyName", entity.CompanyName);
+				command.Parameters.AddWithValue("JobTitle", entity.JobTitle);
+				command.Parameters.AddWithValue("Address1", entity.Address1);
+				command.Parameters.AddWithValue("Address2", entity.Address2);
+
+				command.Parameters.AddWithValue("City", entity.City);
+				command.Parameters.AddWithValue("StateProvince", entity.StateProvince);
+				command.Parameters.AddWithValue("StateCode", entity.StateCode);
+				command.Parameters.AddWithValue("PostalCode", entity.PostalCode);
+				command.Parameters.AddWithValue("Country", entity.Country);
+
+				command.Parameters.AddWithValue("CountryCode", entity.CountryCode);
+				command.Parameters.AddWithValue("PrimaryPhone", entity.PrimaryPhone);
+				command.Parameters.AddWithValue("PrimaryPhoneExt", entity.PrimaryPhoneExt);
+				command.Parameters.AddWithValue("PrimaryPhoneDigits", entity.PrimaryPhoneDigits);
+				command.Parameters.AddWithValue("PrimaryPhoneType", entity.PrimaryPhoneType);
+
+				command.Parameters.AddWithValue("ChemPoint", entity.ChemPoint);
+				command.Parameters.AddWithValue("ChemStat", entity.ChemStat);
+				command.Parameters.AddWithValue("ChemPointPro", entity.ChemPointPro);
+				command.Parameters.AddWithValue("InfiniteExtent", entity.InfiniteExtent);
+				command.Parameters.AddWithValue("SuperSlug", entity.SuperSlug);
+
+				command.Parameters.AddWithValue("StepMaster", entity.StepMaster);
+				command.Parameters.AddWithValue("MohrView", entity.MohrView);
+				command.Parameters.AddWithValue("SieveGraph", entity.SieveGraph);
+				command.Parameters.AddWithValue("Movies", entity.Movies);
+
+				command.Parameters.AddWithValue("EmailAddress", entity.EmailAddress);
+				command.Parameters.AddWithValue("Taafi", entity.Taafi);
 
 				await command.ExecuteNonQueryAsync();
 			}

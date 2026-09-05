@@ -42,32 +42,60 @@ namespace Pointstar.Core.Data.Providers
            ,[OrderLineItemID]
            ,[MemberID]
            ,[Caption]
-           ,[Directory]
+           
+		   ,[Directory]
            ,[FileName]
            ,[DownloadCount]
            ,[DownloadMax]
            ,[SingleUser]
-           ,[FirstUserCookie]
+           
+		   ,[FirstUserCookie]
            ,[Created])
      VALUES
-           (<ID, uniqueidentifier,>
-           ,<OrderID, uniqueidentifier,>
-           ,<OrderLineItemID, uniqueidentifier,>
-           ,<MemberID, uniqueidentifier,>
-           ,<Caption, varchar(250),>
-           ,<Directory, varchar(250),>
-           ,<FileName, varchar(250),>
-           ,<DownloadCount, int,>
-           ,<DownloadMax, int,>
-           ,<SingleUser, bit,>
-           ,<FirstUserCookie, varchar(50),>
-           ,<Created, datetime,>)
+           (@ID
+           ,@OrderID
+           ,@OrderLineItemID
+           ,@MemberID
+           ,@Caption
+           
+		   ,@Directory
+           ,@FileName
+           ,@DownloadCount
+           ,@DownloadMax
+           ,@SingleUser
+           
+		   ,@FirstUserCookie
+           ,getdate())
 ;";
 
 
 			using (SqlCommand command = new SqlCommand(sql, con))
 			{
 				command.Parameters.AddWithValue("ID", entity.ID);
+				if (entity.OrderID.HasValue)
+					command.Parameters.AddWithValue("OrderID", entity.OrderID.Value);
+				else
+					command.Parameters.AddWithValue("OrderID", DBNull.Value);
+				if (entity.OrderLineItemID.HasValue)
+					command.Parameters.AddWithValue("OrderLineItemID", entity.OrderLineItemID.Value);
+				else
+					command.Parameters.AddWithValue("OrderLineItemID", DBNull.Value);
+				if (entity.MemberID.HasValue)
+					command.Parameters.AddWithValue("MemberID", entity.MemberID.Value);
+				else
+					command.Parameters.AddWithValue("MemberID", DBNull.Value);
+				command.Parameters.AddWithValue("Caption", entity.Caption);
+
+				command.Parameters.AddWithValue("Directory", entity.Directory);
+				command.Parameters.AddWithValue("FileName", entity.FileName);
+				command.Parameters.AddWithValue("DownloadCount", entity.DownloadCount);
+				command.Parameters.AddWithValue("DownloadMax", entity.DownloadMax);
+				command.Parameters.AddWithValue("SingleUser", entity.SingleUser);
+
+				if (!String.IsNullOrEmpty(entity.FirstUserCookie))
+					command.Parameters.AddWithValue("FirstUserCookie", entity.FirstUserCookie);
+				else
+					command.Parameters.AddWithValue("FirstUserCookie", DBNull.Value);
 
 				await command.ExecuteNonQueryAsync();
 			}

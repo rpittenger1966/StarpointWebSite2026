@@ -43,74 +43,74 @@ namespace Pointstar.Core.Data.Providers
            ,[PasswordSalt]
            ,[PasswordHashAlgorithm]
            ,[Created]
-           ,[CreatedBy]
-           ,[LastModified]
-           ,[LastModifiedBy])
+           ,[CreatedBy])
      VALUES
-           (<ID, uniqueidentifier,>
-           ,<MemberID, uniqueidentifier,>
-           ,<Password, varchar(50),>
-           ,<PasswordSalt, varchar(50),>
-           ,<PasswordHashAlgorithm, int,>
-           ,<Created, datetime,>
-           ,<CreatedBy, varchar(50),>
-           ,<LastModified, datetime,>
-           ,<LastModifiedBy, varchar(50),>)
-;";
+           (@ID
+           ,@MemberID
+           ,@Password
+           ,@PasswordSalt
+           ,@PasswordHashAlgorithm
+           ,getdate()
+           ,@CreatedBy);";
 
 
 			using (SqlCommand command = new SqlCommand(sql, con))
 			{
 				command.Parameters.AddWithValue("ID", entity.ID);
+				command.Parameters.AddWithValue("MemberID", entity.MemberID);
+				command.Parameters.AddWithValue("Password", entity.Password);
+				command.Parameters.AddWithValue("PasswordSalt", entity.PasswordSalt);
+				command.Parameters.AddWithValue("PasswordHashAlgorithm", entity.PasswordHashAlgorithm);
+				command.Parameters.AddWithValue("CreatedBy", this._userId);
 
 				await command.ExecuteNonQueryAsync();
 			}
 		}
 
-		public async Task<List<PasswordReset>> GetPasswordResetsAsync()
-		{
-			SqlConnection con = null;
+		//public async Task<List<PasswordReset>> GetPasswordResetsAsync()
+		//{
+		//	SqlConnection con = null;
 
-			try
-			{
-				using (con = SqlConnectionFactory.GetSqlConnection(_connectionString))
-				{
-					return await GetPasswordResetsAsync(con);
-				}
-			}
-			catch
-			{
-				throw;
-			}
-			finally
-			{
-				con?.Close();
-			}
-		}
+		//	try
+		//	{
+		//		using (con = SqlConnectionFactory.GetSqlConnection(_connectionString))
+		//		{
+		//			return await GetPasswordResetsAsync(con);
+		//		}
+		//	}
+		//	catch
+		//	{
+		//		throw;
+		//	}
+		//	finally
+		//	{
+		//		con?.Close();
+		//	}
+		//}
 
-		public async Task<List<PasswordReset>> GetPasswordResetsAsync(SqlConnection con)
-		{
-			string sql = "SELECT * FROM [dbo].[PasswordReset] order by [Created] desc";
+		//public async Task<List<PasswordReset>> GetPasswordResetsAsync(SqlConnection con)
+		//{
+		//	string sql = "SELECT * FROM [dbo].[PasswordReset] order by [Created] desc";
 
-			List<PasswordReset> clientList = new List<PasswordReset>();
+		//	List<PasswordReset> clientList = new List<PasswordReset>();
 
-			using (SqlCommand command = new SqlCommand(sql, con))
-			{
-				using (SqlDataReader reader = await command.ExecuteReaderAsync())
-				{
-					while (reader.Read())
-					{
-						PasswordReset client = PasswordResetDataReader.BuildFromDataReader(reader);
-						if (client != null)
-						{
-							clientList.Add(client);
-						}
-					}
-				}
-			}
+		//	using (SqlCommand command = new SqlCommand(sql, con))
+		//	{
+		//		using (SqlDataReader reader = await command.ExecuteReaderAsync())
+		//		{
+		//			while (reader.Read())
+		//			{
+		//				PasswordReset client = PasswordResetDataReader.BuildFromDataReader(reader);
+		//				if (client != null)
+		//				{
+		//					clientList.Add(client);
+		//				}
+		//			}
+		//		}
+		//	}
 
-			return clientList;
-		}
+		//	return clientList;
+		//}
 
 
 		public async Task<PasswordReset> GetByIdAsync(Guid id)

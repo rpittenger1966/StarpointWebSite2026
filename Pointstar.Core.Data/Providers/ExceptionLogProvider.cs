@@ -44,123 +44,129 @@ namespace Pointstar.Core.Data.Providers
            ,[StackTrace]
            ,[Created])
      VALUES
-           (<Cookie, varchar(50),>
-           ,<IPAddress, varchar(50),>
-           ,<VisitorID, uniqueidentifier,>
-           ,<Message, varchar(500),>
-           ,<StackTrace, varchar(max),>
-           ,<Created, datetime,>);
-;";
+           (@Cookie
+           ,@IPAddress
+           ,@VisitorID
+           ,@Message
+           ,@StackTrace
+           ,getdate());";
 
 
 			using (SqlCommand command = new SqlCommand(sql, con))
 			{
-				command.Parameters.AddWithValue("ID", entity.ID);
+				command.Parameters.AddWithValue("Cookie", entity.Cookie);
+				command.Parameters.AddWithValue("IPAddress", entity.IPAddress);
+				if (entity.VisitorID.HasValue)
+					command.Parameters.AddWithValue("VisitorID", entity.VisitorID);
+				else
+					command.Parameters.AddWithValue("VisitorID", DBNull.Value);
+				command.Parameters.AddWithValue("Message", entity.Message);
+				command.Parameters.AddWithValue("StackTrace", entity.StackTrace);
 
 				await command.ExecuteNonQueryAsync();
 			}
 		}
 
-		public async Task<List<ExceptionLog>> GetExceptionLogsAsync()
-		{
-			SqlConnection con = null;
+		//public async Task<List<ExceptionLog>> GetExceptionLogsAsync()
+		//{
+		//	SqlConnection con = null;
 
-			try
-			{
-				using (con = SqlConnectionFactory.GetSqlConnection(_connectionString))
-				{
-					return await GetExceptionLogsAsync(con);
-				}
-			}
-			catch
-			{
-				throw;
-			}
-			finally
-			{
-				con?.Close();
-			}
-		}
+		//	try
+		//	{
+		//		using (con = SqlConnectionFactory.GetSqlConnection(_connectionString))
+		//		{
+		//			return await GetExceptionLogsAsync(con);
+		//		}
+		//	}
+		//	catch
+		//	{
+		//		throw;
+		//	}
+		//	finally
+		//	{
+		//		con?.Close();
+		//	}
+		//}
 
-		public async Task<List<ExceptionLog>> GetExceptionLogsAsync(SqlConnection con)
-		{
-			string sql = "SELECT * FROM [dbo].[ExceptionLog] order by [Created] desc";
+		//public async Task<List<ExceptionLog>> GetExceptionLogsAsync(SqlConnection con)
+		//{
+		//	string sql = "SELECT * FROM [dbo].[ExceptionLog] order by [Created] desc";
 
-			List<ExceptionLog> clientList = new List<ExceptionLog>();
+		//	List<ExceptionLog> clientList = new List<ExceptionLog>();
 
-			using (SqlCommand command = new SqlCommand(sql, con))
-			{
-				using (SqlDataReader reader = await command.ExecuteReaderAsync())
-				{
-					while (reader.Read())
-					{
-						ExceptionLog client = ExceptionLogDataReader.BuildFromDataReader(reader);
-						if (client != null)
-						{
-							clientList.Add(client);
-						}
-					}
-				}
-			}
+		//	using (SqlCommand command = new SqlCommand(sql, con))
+		//	{
+		//		using (SqlDataReader reader = await command.ExecuteReaderAsync())
+		//		{
+		//			while (reader.Read())
+		//			{
+		//				ExceptionLog client = ExceptionLogDataReader.BuildFromDataReader(reader);
+		//				if (client != null)
+		//				{
+		//					clientList.Add(client);
+		//				}
+		//			}
+		//		}
+		//	}
 
-			return clientList;
-		}
-
-
-		public async Task<ExceptionLog> GetByIdAsync(Guid id)
-		{
-			if (id == null) return null;
-
-			SqlConnection con = null;
-
-			try
-			{
-				using (con = SqlConnectionFactory.GetSqlConnection(_connectionString))
-				{
-					return await GetByIdAsync(id);
-				}
-			}
-			catch
-			{
-				throw;
-			}
-			finally
-			{
-				con?.Close();
-			}
-		}
-
-		public async Task<ExceptionLog> GetByIdAsync(SqlConnection con, Guid id)
-		{
-
-			string sql = $"SELECT * FROM [dbo].[ExceptionLog] where ID = '{id}';";
+		//	return clientList;
+		//}
 
 
-			try
-			{
-				using (SqlCommand command = new SqlCommand(sql, con))
-				{
-					using (SqlDataReader reader = await command.ExecuteReaderAsync())
-					{
-						while (reader.Read())
-						{
-							ExceptionLog client = ExceptionLogDataReader.BuildFromDataReader(reader);
-							return client;
-						}
-					}
-				}
+		//public async Task<ExceptionLog> GetByIdAsync(Guid id)
+		//{
+		//	if (id == null) return null;
 
-				return null;
-			}
-			catch
-			{
-				throw;
-			}
-			finally
-			{
-				con?.Close();
-			}
-		}
+		//	SqlConnection con = null;
+
+		//	try
+		//	{
+		//		using (con = SqlConnectionFactory.GetSqlConnection(_connectionString))
+		//		{
+		//			return await GetByIdAsync(id);
+		//		}
+		//	}
+		//	catch
+		//	{
+		//		throw;
+		//	}
+		//	finally
+		//	{
+		//		con?.Close();
+		//	}
+		//}
+
+		//public async Task<ExceptionLog> GetByIdAsync(SqlConnection con, int id)
+		//{
+
+		//	string sql = $"SELECT * FROM [dbo].[ExceptionLog] where ID = {id};";
+
+
+		//	try
+		//	{
+		//		using (SqlCommand command = new SqlCommand(sql, con))
+		//		{
+		//			using (SqlDataReader reader = await command.ExecuteReaderAsync())
+		//			{
+		//				while (reader.Read())
+		//				{
+		//					ExceptionLog client = ExceptionLogDataReader.BuildFromDataReader(reader);
+		//					return client;
+		//				}
+		//			}
+		//		}
+
+		//		return null;
+		//	}
+		//	catch
+		//	{
+		//		throw;
+		//	}
+		//	finally
+		//	{
+		//		con?.Close();
+		//	}
+		//}
 
 
 

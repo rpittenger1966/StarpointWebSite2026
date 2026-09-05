@@ -42,16 +42,19 @@ namespace Pointstar.Core.Data.Providers
            ,[OrderID]
            ,[SaleKey]
            ,[RedirectKey]
+
            ,[Directory]
            ,[FileName]
            ,[Server]
            ,[Year]
            ,[Month]
+
            ,[Day]
            ,[Hour]
            ,[Minute]
            ,[Second]
            ,[DayOfWeek]
+
            ,[Created])
      VALUES
            (@VisitorID
@@ -59,28 +62,52 @@ namespace Pointstar.Core.Data.Providers
            ,@OrderID
            ,@SaleKey
            ,@RedirectKey
-           ,@Directory
+           
+		   ,@Directory
            ,@FileName
            ,@Server
            ,@Year
            ,@Month
-           ,@Day
+           
+		   ,@Day
            ,@Hour
            ,@Minute
            ,@Second
            ,@DayOfWeek
+
            ,getdate());";
 
 
 			using (SqlCommand command = new SqlCommand(sql, con))
 			{
-				command.Parameters.AddWithValue("ID", entity.ID);
+				if (entity.VisitorID.HasValue)
+					command.Parameters.AddWithValue("VisitorID", entity.VisitorID);
+				else
+					command.Parameters.AddWithValue("VisitorID", DBNull.Value);
+
+				if (entity.SiteVisitID.HasValue)
+					command.Parameters.AddWithValue("SiteVisitID", entity.SiteVisitID);
+				else
+					command.Parameters.AddWithValue("SiteVisitID", DBNull.Value);
 
 				if (entity.OrderID.HasValue)
 					command.Parameters.AddWithValue("OrderID", entity.OrderID);
 				else
 					command.Parameters.AddWithValue("OrderID", DBNull.Value);
+				command.Parameters.AddWithValue("SaleKey", entity.SaleKey);
+				command.Parameters.AddWithValue("RedirectKey", entity.RedirectKey);
 
+				command.Parameters.AddWithValue("Directory", entity.Directory);
+				command.Parameters.AddWithValue("FileName", entity.FileName);
+				command.Parameters.AddWithValue("Server", entity.Server);
+				command.Parameters.AddWithValue("Year", DateTime.Now.Year);
+				command.Parameters.AddWithValue("Month", DateTime.Now.Month);
+
+				command.Parameters.AddWithValue("Day", DateTime.Now.Day);
+				command.Parameters.AddWithValue("Hour", DateTime.Now.Hour);
+				command.Parameters.AddWithValue("Minute", DateTime.Now.Minute);
+				command.Parameters.AddWithValue("Second", DateTime.Now.Second);
+				command.Parameters.AddWithValue("DayOfWeek", Convert.ToInt32(DateTime.Now.DayOfWeek));
 
 				await command.ExecuteNonQueryAsync();
 			}
@@ -132,7 +159,7 @@ namespace Pointstar.Core.Data.Providers
 		}
 
 
-		public async Task<AccessRedirectLog> GetByIdAsync(Guid id)
+		public async Task<AccessRedirectLog> GetByIdAsync(int id)
 		{
 			if (id == null) return null;
 
@@ -155,10 +182,10 @@ namespace Pointstar.Core.Data.Providers
 			}
 		}
 
-		public async Task<AccessRedirectLog> GetByIdAsync(SqlConnection con, Guid id)
+		public async Task<AccessRedirectLog> GetByIdAsync(SqlConnection con, int id)
 		{
 
-			string sql = $"SELECT * FROM [dbo].[AccessRedirectLog] where ID = '{id}';";
+			string sql = $"SELECT * FROM [dbo].[AccessRedirectLog] where ID = {id};";
 
 
 			try

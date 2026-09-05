@@ -59,9 +59,9 @@ namespace Pointstar.Core.Data.Providers
 		}
 
 
-		public async Task<AccessRedirect> GetByIdAsync(Guid id)
+		public async Task<AccessRedirect> GetByIdAsync(string redirectKey)
 		{
-			if (id == null) return null;
+			if (String.IsNullOrEmpty(redirectKey)) return null;
 
 			SqlConnection con = null;
 
@@ -69,7 +69,7 @@ namespace Pointstar.Core.Data.Providers
 			{
 				using (con = SqlConnectionFactory.GetSqlConnection(_connectionString))
 				{
-					return await GetByIdAsync(id);
+					return await GetByIdAsync(redirectKey);
 				}
 			}
 			catch
@@ -85,7 +85,7 @@ namespace Pointstar.Core.Data.Providers
 		public async Task<AccessRedirect> GetByIdAsync(SqlConnection con, string redirectKey)
 		{
 
-			string sql = $"SELECT * FROM [dbo].[AccessRedirect] where ID = '{redirectKey}';";
+			string sql = $"SELECT * FROM [dbo].[AccessRedirect] where [RedirectKey] = '{redirectKey}';";
 
 
 			try

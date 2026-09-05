@@ -42,6 +42,7 @@ namespace Pointstar.Core.Data.Providers
            ,[RedirectKey]
            ,[Directory]
            ,[FileName]
+
            ,[Count]
            ,[Max]
            ,[Created])
@@ -51,15 +52,27 @@ namespace Pointstar.Core.Data.Providers
            ,@RedirectKey
            ,@Directory
            ,@FileName
+
            ,@Count
            ,@Max
-           ,getdate());
-;";
+           ,getdate());";
 
 
 			using (SqlCommand command = new SqlCommand(sql, con))
 			{
-				command.Parameters.AddWithValue("ID", entity.ID);
+				if (entity.OrderID.HasValue)
+					command.Parameters.AddWithValue("OrderID", entity.OrderID);
+				else
+					command.Parameters.AddWithValue("OrderID", DBNull.Value);
+
+				command.Parameters.AddWithValue("SaleKey", entity.SaleKey);
+				command.Parameters.AddWithValue("RedirectKey", entity.RedirectKey);
+				command.Parameters.AddWithValue("Directory", entity.Directory);
+				command.Parameters.AddWithValue("FileName", entity.FileName);
+
+				command.Parameters.AddWithValue("Count", entity.Count);
+				command.Parameters.AddWithValue("Max", entity.Max);
+
 				await command.ExecuteNonQueryAsync();
 			}
 		}
@@ -110,7 +123,7 @@ namespace Pointstar.Core.Data.Providers
 		}
 
 
-		public async Task<AccessRedirectCounter> GetByIdAsync(Guid id)
+		public async Task<AccessRedirectCounter> GetByIdAsync(int id)
 		{
 			if (id == null) return null;
 
@@ -133,10 +146,10 @@ namespace Pointstar.Core.Data.Providers
 			}
 		}
 
-		public async Task<AccessRedirectCounter> GetByIdAsync(SqlConnection con, Guid id)
+		public async Task<AccessRedirectCounter> GetByIdAsync(SqlConnection con, int id)
 		{
 
-			string sql = $"SELECT * FROM [dbo].[AccessRedirectCounter] where ID = '{id}';";
+			string sql = $"SELECT * FROM [dbo].[AccessRedirectCounter] where ID = {id};";
 
 
 			try
@@ -206,6 +219,20 @@ namespace Pointstar.Core.Data.Providers
 			{
 				using (SqlCommand command = new SqlCommand(sql, con))
 				{
+					if (entity.OrderID.HasValue)
+						command.Parameters.AddWithValue("OrderID", entity.OrderID);
+					else
+						command.Parameters.AddWithValue("OrderID", DBNull.Value);
+
+					command.Parameters.AddWithValue("SaleKey", entity.SaleKey);
+					command.Parameters.AddWithValue("RedirectKey", entity.RedirectKey);
+					command.Parameters.AddWithValue("Directory", entity.Directory);
+					command.Parameters.AddWithValue("FileName", entity.FileName);
+
+					command.Parameters.AddWithValue("Count", entity.Count);
+					command.Parameters.AddWithValue("Max", entity.Max);
+
+
 					command.Parameters.AddWithValue("ID", entity.ID);
 
 					await command.ExecuteNonQueryAsync();
