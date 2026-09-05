@@ -16,6 +16,7 @@ namespace Pointstar.Site
 			{
 				options.PageViewLocationFormats.Add("/Pages/Shared/Partials/{0}" + RazorViewEngine.ViewExtension);
 				options.PageViewLocationFormats.Add("/Pages/Shared/Partials/m/{0}" + RazorViewEngine.ViewExtension);
+				options.PageViewLocationFormats.Add("/Pages/Shared/Partials/Admin/{0}" + RazorViewEngine.ViewExtension);
 			});
 
 			WebApplication app = builder.Build();

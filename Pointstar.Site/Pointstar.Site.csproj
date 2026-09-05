@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <Folder Include="Pages\HelpRedirect\" />
-    <Folder Include="Pages\Waxyice\" />
     <Folder Include="Pages\Test\" />
     <Folder Include="Pages\Order\" />
   </ItemGroup>

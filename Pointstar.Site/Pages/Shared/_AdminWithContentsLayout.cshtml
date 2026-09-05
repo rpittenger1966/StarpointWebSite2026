@@ -1,4 +1,60 @@
-﻿@page
-@model Pointstar.Site.Pages.Shared._AdminWithContentsLayoutModel
-@{
-}
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"]</title>
+
+	<link rel="stylesheet" href="~/Css/StyleAdmin.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/Css/Common.css" asp-append-version="true" />
+
+	<meta name="robots" content="nofollow,noindex" />
+</head>
+<body>
+
+	<div>
+
+		<partial name="_AdminHeaderPartial" />
+
+
+		<div class="mainbody">
+
+			<table width="100%">
+				<tr>
+					<td style="vertical-align: top" width="320px">
+						<div class="adminContents">
+							<b><a href="/">Web Site Home</a></b><br />
+
+							<b><a href="/Waxyice/">Admin Home</a></b><br />
+
+							<b><a href="/Waxyice/SubmitUpgrade">Submit Upgrade</a></b><br />
+
+							<b><a href="/Waxyice/OutboundEmailList">Outbound Email List</a></b><br />
+						</div>
+
+					</td>
+					<td style="vertical-align: top">
+						<div class="adminBody">
+							<main role="main" class="pb-3">
+								@RenderBody()
+							</main>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<partial name="_AdminFooterPartial" />
+
+
+	</div>
+
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+
+	@await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>
